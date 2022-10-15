@@ -1,11 +1,10 @@
 import './App.css';
-// import Card from './conponents/Card';
 import PokemonsList from './conponents/PokemonsList';
 
 function App() {
   return (
     <>
-      <PokemonsList />
+      <PokemonsList limit={20} offset={5}/>
     </>
   );
 }

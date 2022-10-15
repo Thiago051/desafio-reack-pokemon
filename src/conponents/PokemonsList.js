@@ -1,41 +1,21 @@
-import { useState, useEffect } from "react"
 import Card from "./Card"
 
-const baseUrl = 'https://pokeapi.co/api/v2/pokemon'
 
-async function getPokemon() {
-    const response = await fetch(baseUrl)
-    return await response.json()
-}
+const PokemonsList = ({ limit, offset }) => {
 
 
-const PokemonsList = () => {
+    const pokemonsId = []
+    for (let id = offset + 1; id < limit; id++) pokemonsId.push(id)
 
-    const [pokemons, setPokemon] = useState([])
-
-    useEffect(() => {
-        async function fetchData() {
-            const response = await getPokemon()
-            setPokemon(response.results)
-        }
-        fetchData()
-    }, [])
-
-    console.log(pokemons)
     return (
         <div>
             {
-                pokemons.map((pokemon, index) =>
+                pokemonsId.map((id, index) =>
                     <div key={index}>
-                        <Card {...pokemon}/>
+                        <Card id={id} />
                     </div>
                 )
             }
-
-            {/* <img
-                src={pokemon.sprites.versions['generation-v']['black-white']['animated']['front_default']}
-                alt={pokemon.name}
-            /> */}
         </div>
     )
 }

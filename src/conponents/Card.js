@@ -1,34 +1,35 @@
 import { useState, useEffect } from "react"
+import { pokemonAPI } from "../services/api"
 
-const baseUrl = 'https://pokeapi.co/api/v2/pokemon'
+const Card = ({ id }) => {
 
-async function getPokemon(pokemon) {
-    const response = await fetch(pokemon)
-    return await response.json()
-}
-
-
-const Card = ({ url }) => {
-
-    const [pokemon, setPokemon] = useState([])
+    const [pokemon, setPokemon] = useState({ 
+        name: '',
+        imageUrl: ''
+    })
 
     useEffect(() => {
         async function fetchData() {
-            const response = await getPokemon(url)
-            setPokemon(response)
+            const response = await pokemonAPI.getPokemon(id)
+            const name = response.data.name
+            const imageUrl = response.data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+
+            setPokemon({ 
+                name:  name,
+                imageUrl: imageUrl
+            })
         }
         fetchData()
-    }, [])
+    }, [id])
 
-    // const imgUrl = pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+    console.log(pokemon.name)
+
+
     return (
-        <div>
-            <h2>{pokemon.name}</h2>
-            <img
-                src={pokemon['sprites']['versions']['generation-v']['black-white']['animated']['front_default']}
-                alt={pokemon.name}
-            />
-        </div>
+        <>
+            <h2>{id} - {pokemon.name}</h2>
+            <img src={pokemon.imageUrl} alt={pokemon.name}/>
+        </>
     )
 }
 
