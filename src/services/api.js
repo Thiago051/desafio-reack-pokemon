@@ -6,12 +6,11 @@ const api = axios.create({
 })
 
 const pokemonAPI = {
-    getPokemon(pokemon) {
-        return api.get(`pokemon/${pokemon}`)
+    getPokemon(id) {
+        return api.get(`pokemon/${id}`)
     },
-    getPokemonList(limit, offset) {
-        console.log('getPokemonList()')
-        return api.get(`pokemon?limit=${limit}&offset=${offset}`)
+    getAbilityText(ability) {
+        return api.get(`ability/${ability}`)
     }
 }
 

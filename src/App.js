@@ -1,12 +1,12 @@
 import './App.css';
-import DeckOfPokemons from './conponents/DeckOfPokemons';
-// import PokemonsList2 from './conponents/DeckOfPokemons';
-// import PokemonsList from './conponents/PokemonsList';
+// import DeckOfPokemons from './conponents/DeckOfPokemons';
+import Pokemon from './conponents/Pokemon';
 
 function App() {
   return (
     <>
-      <DeckOfPokemons/>
+      {/* <DeckOfPokemons/> */}
+      <Pokemon id={1}/>
     </>
   );
 }
