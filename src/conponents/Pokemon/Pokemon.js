@@ -3,6 +3,7 @@ import { useState, useEffect } from "react"
 import Moves from "../Moves/Moves"
 import Abilities from "../Abilities/Abilities"
 import Types from "../Type/Types"
+import Card from "../Card/Card"
 import { useParams, Link } from 'react-router-dom'
 
 
@@ -40,9 +41,9 @@ const Pokemon = () => {
     return (
         <>
             <Link to={'/'}>Voltar para a Lista de Pokemons</Link>
-            <h2>{id} - {pokemon.name}</h2>
-            <img src={pokemon.imageUrl} alt={pokemon.name} />
-            {/* <Card id={id} /> */}
+            {/* <h2>{id} - {pokemon.name}</h2>
+            <img src={pokemon.imageUrl} alt={pokemon.name} /> */}
+            <Card id={id} animated={true}/>
             <Moves movesList={pokemon.moves} />
             <Abilities abilitiesList={pokemon.abilities}/>
             <Types typesList={pokemon.types} />

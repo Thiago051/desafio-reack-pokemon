@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { initialPokemonsQuantity } from "../../variables/variables"
 import Button from "../Button/Button"
 import Card from "../Card/Card"
-// import ReactDOM from 'react-dom/client';
+import { Main, List, Item } from "./style"
 
 
 const PokemonsList = ({ limit }) => {
@@ -15,19 +15,25 @@ const PokemonsList = ({ limit }) => {
     }
     const pokemonsId = getIdList()
 
+    // const [animated, setAnimated] = useState(false)
+
+    // const handleMouseOver = () => setAnimated(true)
+
+
+
     return (
         <>
-            <ul>
+            <List>
                 {
                     pokemonsId.map((id, index) =>
-                        <li key={index}>
+                        <Item key={index}>
                             <Link to={`pokemon/${id}`}>
                                 <Card id={id} />
                             </Link>
-                        </li>
+                        </Item>
                     )
                 }
-            </ul>
+            </List>
         </>
     )
 }
@@ -51,8 +57,10 @@ const DeckOfPokemons = () => {
 
     return (
         <>
-            <PokemonsList limit={limit} className="pokemon-list" />
-            <Button onClick={handleClick}>Carregar Mais</Button>
+            <Main>
+                <PokemonsList limit={limit} />
+            </Main>
+            <Button onClick={handleClick}>Load More</Button>
         </>
     )
 }

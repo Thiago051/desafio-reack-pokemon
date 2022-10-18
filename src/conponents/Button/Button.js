@@ -1,6 +1,10 @@
+import { AddMorePokemons, AddButton } from "./style"
+
 const Button = (props) => {
     return (
-        <button {...props}/>
+        <AddMorePokemons>
+            <AddButton {...props} />
+        </AddMorePokemons>
     )
 }
 
