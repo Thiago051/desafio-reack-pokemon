@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from 'react-router-dom'
 import { initialPokemonsQuantity } from "../variables/variables"
 import Button from "./Button"
 import Card from "./Card"
@@ -20,7 +21,9 @@ const PokemonsList = ({ limit }) => {
                 {
                     pokemonsId.map((id, index) =>
                         <li key={index}>
-                            <Card id={id} />
+                            <Link to={`pokemon/${id}`}>
+                                <Card id={id} />
+                            </Link>
                         </li>
                     )
                 }

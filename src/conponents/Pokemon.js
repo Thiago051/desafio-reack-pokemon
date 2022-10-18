@@ -3,9 +3,11 @@ import { useState, useEffect } from "react"
 import Moves from "./Moves"
 import Abilities from "./Abilities"
 import Types from "./Types"
+import { useParams } from 'react-router-dom'
 
+const Pokemon = () => {
 
-const Pokemon = ({ id }) => {
+    const { id } = useParams()
 
     const [pokemon, setPokemon] = useState({
         imageUrl: '',
@@ -38,6 +40,7 @@ const Pokemon = ({ id }) => {
         <>
             <h2>{id} - {pokemon.name}</h2>
             <img src={pokemon.imageUrl} alt={pokemon.name} />
+            {/* <Card id={id} /> */}
             <Moves movesList={pokemon.moves} />
             <Abilities abilitiesList={pokemon.abilities}/>
             <Types typesList={pokemon.types} />

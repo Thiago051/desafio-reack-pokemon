@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { pokemonAPI } from "../services/api"
 
 const Card = ({ id }) => {
-
+    
     const [pokemon, setPokemon] = useState({ 
         name: '',
         imageUrl: ''
