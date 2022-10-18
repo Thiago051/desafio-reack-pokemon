@@ -1,8 +1,8 @@
 import { useState } from "react"
 import { Link } from 'react-router-dom'
-import { initialPokemonsQuantity } from "../variables/variables"
-import Button from "./Button"
-import Card from "./Card"
+import { initialPokemonsQuantity } from "../../variables/variables"
+import Button from "../Button/Button"
+import Card from "../Card/Card"
 // import ReactDOM from 'react-dom/client';
 
 

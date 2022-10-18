@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-import { pokemonAPI } from "../services/api"
+import { pokemonAPI } from "../../services/api"
 
-const Ability = ({ ability }) => {
+const AbilityDescription = ({ ability }) => {
 
     const [abilityText, setAbilityText] = useState('')
 
@@ -9,10 +9,8 @@ const Ability = ({ ability }) => {
         async function fetchData() {
             const response = await pokemonAPI.getAbilityText(ability)
 
-            const enlishText = response.data['effect_entries']
-                .filter(effect => effect.language.name === 'en')
-
-            const text = enlishText[0]['short_effect']
+            const text = response.data['effect_entries']
+                .filter(effect => effect.language.name === 'en')[0]['short_effect']
 
             setAbilityText(text)
         }
@@ -34,7 +32,7 @@ const Abilities = ({ abilitiesList }) => {
                     abilitiesList.map((abilities, index) =>
                         <li key={index}>
                             <h4>{abilities.ability.name}</h4>
-                            <Ability ability={abilities.ability.name} />
+                            <AbilityDescription ability={abilities.ability.name} />
                         </li>
                     )
                 }

@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Pokemon from '../conponents/Pokemon';
-import DeckOfPokemons from '../conponents/DeckOfPokemons';
+import Home from './home';
+import PokemonDetails from './details';
 
 const AppRoutes = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path='/' element={<DeckOfPokemons />} />
-                <Route exact path='/pokemon/:id' element={<Pokemon />} />
+                <Route exact path='/' element={<Home />} />
+                <Route exact path='/pokemon/:id' element={<PokemonDetails />} />
             </Routes>
         </BrowserRouter>
     )

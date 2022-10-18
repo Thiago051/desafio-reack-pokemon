@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { pokemonAPI } from "../services/api"
+import { pokemonAPI } from "../../services/api"
 
 const Card = ({ id }) => {
     

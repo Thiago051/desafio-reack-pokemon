@@ -1,9 +1,10 @@
-import { pokemonAPI } from "../services/api"
+import { pokemonAPI } from "../../services/api"
 import { useState, useEffect } from "react"
-import Moves from "./Moves"
-import Abilities from "./Abilities"
-import Types from "./Types"
-import { useParams } from 'react-router-dom'
+import Moves from "../Moves/Moves"
+import Abilities from "../Abilities/Abilities"
+import Types from "../Type/Types"
+import { useParams, Link } from 'react-router-dom'
+
 
 const Pokemon = () => {
 
@@ -38,6 +39,7 @@ const Pokemon = () => {
 
     return (
         <>
+            <Link to={'/'}>Voltar para a Lista de Pokemons</Link>
             <h2>{id} - {pokemon.name}</h2>
             <img src={pokemon.imageUrl} alt={pokemon.name} />
             {/* <Card id={id} /> */}

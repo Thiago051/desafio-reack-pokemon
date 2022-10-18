@@ -1,4 +1,4 @@
-import DeckOfPokemons from '../conponents/DeckOfPokemons';
+import DeckOfPokemons from '../conponents/DeckOfPokemons/DeckOfPokemons';
 const Home = () => {
     return (
         <DeckOfPokemons />
