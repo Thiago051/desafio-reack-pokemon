@@ -1,7 +1,15 @@
+import Header from '../conponents/Header/Header';
 import DeckOfPokemons from '../conponents/DeckOfPokemons/DeckOfPokemons';
+import Footer from '../conponents/Footer/Footer';
+
 const Home = () => {
     return (
-        <DeckOfPokemons />
+        <>
+            <Header />
+            <DeckOfPokemons />
+            <Footer />
+        </>
+
     )
 }
 

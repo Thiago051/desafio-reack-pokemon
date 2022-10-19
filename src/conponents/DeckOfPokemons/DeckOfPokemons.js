@@ -15,14 +15,7 @@ const PokemonsList = ({ limit }) => {
     }
     const pokemonsId = getIdList()
 
-    // const [animated, setAnimated] = useState(false)
-
-    // const handleMouseOver = () => setAnimated(true)
-
-
-
     return (
-        <>
             <List>
                 {
                     pokemonsId.map((id, index) =>
@@ -34,7 +27,6 @@ const PokemonsList = ({ limit }) => {
                     )
                 }
             </List>
-        </>
     )
 }
 

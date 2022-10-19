@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const AddMorePokemons = styled.div`
     text-align: center;
-    margin-top: 30px;
+    margin: 30px 0;
 `;
 
 const AddButton = styled.button`
@@ -10,7 +10,9 @@ const AddButton = styled.button`
     background-color: #ff0000;
     color: #fff;
     font-weight: 900;
-    text-transform: uppercase;    
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;    
 `;
 
 export { AddMorePokemons, AddButton }

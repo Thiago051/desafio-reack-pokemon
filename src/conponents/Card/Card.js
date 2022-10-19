@@ -10,6 +10,8 @@ const Card = ({ id }) => {
     })
 
     const [animated, setAnimation] = useState(false)
+    const handleMouseOver = () => setAnimation(true)
+    const handleMouseOut = () => setAnimation(false)
 
     useEffect(() => {
         async function fetchData() {
@@ -28,13 +30,6 @@ const Card = ({ id }) => {
         }
         fetchData()
     }, [id, animated])
-
-    console.log(pokemon.name)
-
-
-
-    const handleMouseOver = () => setAnimation(true)
-    const handleMouseOut = () => setAnimation(false)
 
     return (
         <PokemonCard animated={animated}

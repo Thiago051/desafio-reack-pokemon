@@ -14,7 +14,7 @@ const PokemonCard = styled.div`
 
 const PokemonName = styled.h2`
   font-size: 25px;
-  color: palevioletred;
+  color: #fff;
   text-decoration: none;
   text-transform: capitalize;
   text-align: center;
