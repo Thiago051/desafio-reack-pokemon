@@ -9,9 +9,9 @@ const Card = ({ id }) => {
         imageUrl: ''
     })
 
-    const [animated, setAnimation] = useState(false)
-    const handleMouseOver = () => setAnimation(true)
-    const handleMouseOut = () => setAnimation(false)
+    const [animated, setAanimated] = useState(false)
+    const handleMouseOver = () => setAanimated(true)
+    const handleMouseOut = () => setAanimated(false)
 
     useEffect(() => {
         async function fetchData() {

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { pokemonAPI } from "../../services/api"
+import { AbilitiesSection, Title, Description, List, Item, AbilityName } from "./styles"
 
 const AbilityDescription = ({ ability }) => {
 
@@ -18,26 +19,26 @@ const AbilityDescription = ({ ability }) => {
     }, [ability])
 
     return (
-        <p>{abilityText}</p>
+        <Description>{abilityText}</Description>
     )
 }
 
 const Abilities = ({ abilitiesList }) => {
 
     return (
-        <div>
-            <h2>Abilities</h2>
-            <ul>
+        <AbilitiesSection>
+            <Title>Abilities</Title>
+            <List>
                 {
                     abilitiesList.map((abilities, index) =>
-                        <li key={index}>
-                            <h3>{abilities.ability.name}</h3>
+                        <Item key={index}>
+                            <AbilityName>{abilities.ability.name}</AbilityName>
                             <AbilityDescription ability={abilities.ability.name} />
-                        </li>
+                        </Item>
                     )
                 }
-            </ul>
-        </div>
+            </List>
+        </AbilitiesSection>
     )
 }
 

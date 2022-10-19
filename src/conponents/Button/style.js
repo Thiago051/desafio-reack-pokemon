@@ -11,8 +11,8 @@ const AddButton = styled.button`
     color: #fff;
     font-weight: 900;
     text-transform: uppercase;
-    border: none;
-    cursor: pointer;    
+    border: 1px solid #fff;
+    cursor: pointer;  
 `;
 
 export { AddMorePokemons, AddButton }

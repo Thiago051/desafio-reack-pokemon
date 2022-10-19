@@ -1,17 +1,19 @@
+import { TypesSection, Title, List, Item } from "./styles";
+
 const Types = ({ typesList }) => {
     return (
-        <div>
-            <h2>Types</h2>
-            <ul>
+        <TypesSection>
+            <Title>Types</Title>
+            <List>
                 {
                     typesList.map((types, index) =>
-                        <li key={index}>
+                        <Item key={index}>
                             {types.type.name}
-                        </li>
+                        </Item>
                     )
                 }
-            </ul>
-        </div>
+            </List>
+        </TypesSection>
     )
 }
 

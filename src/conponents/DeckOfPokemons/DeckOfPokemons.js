@@ -5,15 +5,15 @@ import Button from "../Button/Button"
 import Card from "../Card/Card"
 import { Main, List, Item } from "./style"
 
+const getIdList = (limit) => {
+    let ids = []
+    for (let id = 1; id <= limit; id++) ids.push(id)
+    return ids
+}
 
 const PokemonsList = ({ limit }) => {
 
-    const getIdList = () => {
-        let ids = []
-        for (let id = 1; id <= limit; id++) ids.push(id)
-        return ids
-    }
-    const pokemonsId = getIdList()
+    const pokemonsId = getIdList(limit)
 
     return (
             <List>
@@ -30,17 +30,10 @@ const PokemonsList = ({ limit }) => {
     )
 }
 
+
 const DeckOfPokemons = () => {
 
     const [limit, setLimit] = useState(initialPokemonsQuantity)
-
-    // https://stackoverflow.com/questions/59198952/using-document-queryselector-in-react-should-i-use-refs-instead-how
-    // const scroll = () => {
-    //     const pokemonsList = ReactDOM.(document.querySelector('.pokemon-list'))
-    //     pokemonsList.scrollBy(0,100);
-    // }
-
-
 
     const handleClick = () => {
         setLimit(initialPokemonsQuantity + limit)

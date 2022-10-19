@@ -1,18 +1,20 @@
+import { MovesSection, Title, List, Item } from "./stye"
+
 const Moves = ({ movesList }) => {
 
     return (
-        <div>
-            <h2>Moves</h2>
-            <ul>
+        <MovesSection>
+            <Title>Moves</Title>
+            <List>
                 {
                     movesList.map((moves, index) =>
-                        <li key={index}>
+                        <Item key={index}>
                             {moves.move.name ?? 'cade o nome do movimento?'}
-                        </li>
+                        </Item>
                     )
                 }
-            </ul>
-        </div>
+            </List>
+        </MovesSection>
     )
 }
 

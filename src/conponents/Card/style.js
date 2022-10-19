@@ -19,7 +19,6 @@ const PokemonName = styled.h2`
   text-transform: capitalize;
   text-align: center;
   padding: 15px 0;
-
 `;
 
 const PokemonImg = styled.img`
