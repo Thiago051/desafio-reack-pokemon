@@ -26,12 +26,12 @@ const Abilities = ({ abilitiesList }) => {
 
     return (
         <div>
-            <h3>Abilities</h3>
+            <h2>Abilities</h2>
             <ul>
                 {
                     abilitiesList.map((abilities, index) =>
                         <li key={index}>
-                            <h4>{abilities.ability.name}</h4>
+                            <h3>{abilities.ability.name}</h3>
                             <AbilityDescription ability={abilities.ability.name} />
                         </li>
                     )

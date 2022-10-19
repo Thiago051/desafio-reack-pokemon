@@ -1,7 +1,7 @@
 const Types = ({ typesList }) => {
     return (
         <div>
-            <h3>Types</h3>
+            <h2>Types</h2>
             <ul>
                 {
                     typesList.map((types, index) =>

@@ -2,7 +2,7 @@ const Moves = ({ movesList }) => {
 
     return (
         <div>
-            <h3>Moves</h3>
+            <h2>Moves</h2>
             <ul>
                 {
                     movesList.map((moves, index) =>

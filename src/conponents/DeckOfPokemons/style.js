@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Main = styled.main`
-    position: relative;
+    margin-top: 120px;
     display: flex;
     justify-content: center; 
 `;
