@@ -1,11 +1,5 @@
 import styled from "styled-components";
 
-/*
-    position: fixed;
-    top: 0;
-    z-index: 1;
-    width: 100%;
-*/
 const AppHeader = styled.div`
     position: fixed;
     top: 0;
@@ -17,6 +11,7 @@ const AppHeader = styled.div`
     background-color: #ff0000;
     padding: 20px 0;
     margin-bottom: 30px;
+    box-shadow: rgba(600, 0, 0, 0.5) 0px 8px 24px;
 `;
 
 const AppTitle = styled.h1`

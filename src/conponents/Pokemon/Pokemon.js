@@ -5,7 +5,7 @@ import GoBackLink from "../GoBackLink/GoBackLink"
 import Moves from "../Moves/Moves"
 import Abilities from "../Abilities/Abilities"
 import Types from "../Type/Types"
-import { DetailsMain, PokemonName, PokemonImg, } from "./style"
+import { DetailsMain, Info, PokemonName, PokemonImg, } from "./style"
 
 
 const Pokemon = () => {
@@ -43,8 +43,10 @@ const Pokemon = () => {
         <>
             <GoBackLink />
             <DetailsMain>
-                <PokemonName>{pokemon.name}</PokemonName>
-                <PokemonImg src={pokemon.imageUrl} alt={pokemon.name} />
+                <Info>
+                    <PokemonName>{pokemon.name}</PokemonName>
+                    <PokemonImg src={pokemon.imageUrl} alt={pokemon.name} />
+                </Info>
                 <Moves movesList={pokemon.moves} />
                 <Abilities abilitiesList={pokemon.abilities} />
                 <Types typesList={pokemon.types} />

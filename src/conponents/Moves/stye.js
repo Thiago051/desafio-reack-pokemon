@@ -28,7 +28,6 @@ const Item = styled.li`
     font-size: 18px;
     font-weight: 500;
     text-transform: capitalize;
-    ;
 `;
 
 export { MovesSection, Title, List, Item }

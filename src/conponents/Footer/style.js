@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const AppFooter = styled.footer`
-    padding: 20px 0;
+    padding: 30px 0;
     text-align: center;
     font-weight: 500;
     bottom: 0;

@@ -12,12 +12,18 @@ const Title = styled.h2`
 
 const List = styled.ul`
     padding: 15px 30px;
+    display: flex;
 `;
 
 const Item = styled.li`
-    list-style: square;
+    background-color: #00b300;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
     text-transform: capitalize;
-    padding: 10px 0;
 `;
 
 

@@ -6,6 +6,7 @@ const PokemonCard = styled.div`
     justify-content: center;
     border: 1px solid white;
     width: 200px;
+    transition: 0.5s ease-in-out;
     &:hover {
       border: 2px solid red;
     }

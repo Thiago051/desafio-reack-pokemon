@@ -20,7 +20,11 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-    list-style: square;
+    background-color:  #0000e6;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align:center
 `;
 
 const AbilityName = styled.h3`

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const GoBack = styled.div`
     padding-left: 30px;
+    margin-bottom: 15px;
 `;
 
 const Img = styled.img`
