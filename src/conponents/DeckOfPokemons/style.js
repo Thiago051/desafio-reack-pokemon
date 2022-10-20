@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
 const Main = styled.main`
-    margin-top: 120px;
+    margin-top: -40px;
+`;
+
+const Deck = styled.div`
+    margin-top: 170px;
+    padding: 50px 0;
     display: flex;
     justify-content: center; 
 `;
@@ -18,4 +23,4 @@ const Item = styled.li`
 `;
 
 
-export { Main, List, Item }
+export { Main, Deck, List, Item }

@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { Link } from 'react-router-dom'
+import { ThemeContext } from "../../contexts/themeToggler"
 import { initialPokemonsQuantity } from "../../variables/variables"
 import Button from "../Button/Button"
 import Card from "../Card/Card"
-import { Main, List, Item } from "./style"
+import { Main, Deck, List, Item } from "./style"
 
 const getIdList = (limit) => {
     let ids = []
@@ -11,22 +12,35 @@ const getIdList = (limit) => {
     return ids
 }
 
+
 const PokemonsList = ({ limit }) => {
 
     const pokemonsId = getIdList(limit)
 
+    // const { theme } = useContext(ThemeContext)
+
+    // const handleMouseOver = () => {
+    //     let card = document.querySelector('.card')
+    //     card.style['border-color'] = '#f00'
+    // }
+
+    // const handleMouseOut = () => {
+    //     let card = document.querySelector('.card')
+    //     card.style['border-color'] = theme.border
+    // }
+
     return (
-            <List>
-                {
-                    pokemonsId.map((id, index) =>
-                        <Item key={index}>
-                            <Link to={`pokemon/${id}`}>
-                                <Card id={id} />
-                            </Link>
-                        </Item>
-                    )
-                }
-            </List>
+        <List>
+            {
+                pokemonsId.map((id, index) =>
+                    <Item key={index}>
+                        <Link to={`pokemon/${id}`}>
+                            <Card id={id} />
+                        </Link>
+                    </Item>
+                )
+            }
+        </List>
     )
 }
 
@@ -40,13 +54,15 @@ const DeckOfPokemons = () => {
         // scroll()
     }
 
+    const { theme } = useContext(ThemeContext)
+
     return (
-        <>
-            <Main>
+        <Main style={{ backgroundColor: theme.background }}>
+            <Deck>
                 <PokemonsList limit={limit} />
-            </Main>
+            </Deck>
             <Button onClick={handleClick}>Load More</Button>
-        </>
+        </Main>
     )
 }
 

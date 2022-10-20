@@ -1,12 +1,15 @@
 import './App.css';
 import { AppRoutes } from './pages/routes';
 import { createGlobalStyle } from 'styled-components'
+import { ThemeProvider } from './contexts/themeToggler';
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <AppRoutes />
+      <ThemeProvider>
+        <AppRoutes />
+      </ThemeProvider>
     </>
   );
 }

@@ -1,13 +1,19 @@
-import { AppHeader, AppTitle, AppLogo } from "./style"
+import { AppHeader, AppInfo, AppTitle, AppLogo } from "./style"
 
 import logo from "../../images/logo.svg"
+import { ThemeTogglerButton } from "../ThemeTogglerButton/ThemeTogglerButton"
 
 const Header = () => {
     return (
-        <AppHeader>
-            <AppLogo src={logo} alt="PokeDex" />
-            <AppTitle>PokeDex</AppTitle>
-        </AppHeader>
+        <>
+            <AppHeader>
+                <AppInfo>
+                    <AppLogo src={logo} alt="PokeDex" />
+                    <AppTitle>PokeDex</AppTitle>
+                </AppInfo>
+                <ThemeTogglerButton /> 
+            </AppHeader>
+        </>
     )
 }
 

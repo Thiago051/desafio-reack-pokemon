@@ -1,17 +1,29 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
+import { ThemeContext } from "../../contexts/themeToggler"
 import { pokemonAPI } from "../../services/api"
 import { PokemonCard, PokemonName, PokemonImg } from "./style"
 
 const Card = ({ id }) => {
 
+    const [animated, setAanimated] = useState(false)
+    const { theme } = useContext(ThemeContext)
+
+    const handleMouseOver = () => {
+        let card = document.querySelector(`.card-${id}`)
+        card.style['border-color'] = '#f00'
+        setAanimated(true)
+    }
+
+    const handleMouseOut = () => {
+        let card = document.querySelector(`.card-${id}`)
+        card.style['border-color'] = theme.border
+        setAanimated(false)
+    }
+    
     const [pokemon, setPokemon] = useState({
         name: '',
         imageUrl: ''
     })
-
-    const [animated, setAanimated] = useState(false)
-    const handleMouseOver = () => setAanimated(true)
-    const handleMouseOut = () => setAanimated(false)
 
     useEffect(() => {
         async function fetchData() {
@@ -31,11 +43,15 @@ const Card = ({ id }) => {
         fetchData()
     }, [id, animated])
 
+
     return (
-        <PokemonCard animated={animated}
+        <PokemonCard className={`card-${id}`} animated={animated}
             onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}>
-            <PokemonName>{id} - {pokemon.name}</PokemonName>
+            onMouseOut={handleMouseOut}
+            style={{ borderColor: theme.border }} > {/*borderColor: theme.border */}
+            <PokemonName style={{ color: theme.color }}>
+                {id} - {pokemon.name}
+            </PokemonName>
             <PokemonImg src={pokemon.imageUrl} alt={pokemon.name} />
         </PokemonCard>
     )

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const AddMorePokemons = styled.div`
     text-align: center;
-    margin: 30px 0;
+    margin-top: 30px;
 `;
 
 const AddButton = styled.button`

@@ -3,7 +3,7 @@ import { TypesSection, Title, List, Item } from "./styles";
 const Types = ({ typesList }) => {
     return (
         <TypesSection>
-            <Title>Types</Title>
+            <Title>Type</Title>
             <List>
                 {
                     typesList.map((types, index) =>

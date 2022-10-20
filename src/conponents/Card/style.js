@@ -4,14 +4,17 @@ const PokemonCard = styled.div`
     display: flex;
     flex-direction: column;   
     justify-content: center;
-    border: 1px solid white;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
     width: 200px;
     transition: 0.5s ease-in-out;
     &:hover {
-      border: 2px solid red;
+      border-width: 3px;
+      border-style: solid;
+      border-color: #f00
     }
 `;
-
 
 const PokemonName = styled.h2`
   font-size: 25px;

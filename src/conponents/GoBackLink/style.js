@@ -6,7 +6,7 @@ const GoBack = styled.div`
 `;
 
 const Img = styled.img`
-    margin-top: 120px;
+    margin-top: 170px;
     width: 50px;
     height: 50px;
 `;

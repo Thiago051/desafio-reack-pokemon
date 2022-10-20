@@ -24,7 +24,9 @@ const Item = styled.li`
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
-    text-align:center
+    font-size: 18px;
+    text-align:center;
+    color: #fff;
 `;
 
 const AbilityName = styled.h3`
