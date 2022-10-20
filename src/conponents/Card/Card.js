@@ -54,7 +54,7 @@ const Card = ({ id }) => {
             style={{ borderColor: theme.border }} >
 
             <PokemonName style={{ color: theme.color }}>
-                {id} - {pokemon.name}
+                {pokemon.name}
             </PokemonName>
             <PokemonImg src={pokemon.imageUrl} alt={pokemon.name} />
 

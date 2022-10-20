@@ -14,7 +14,8 @@ const AddButton = styled.button`
     border-width: 2px;
     border-style: solid;
     border-radius: 5px;
-    cursor: pointer;  
+    cursor: pointer;
+    transition: 0.5s ease-in-out;  
 `;
 
 export { AddMorePokemons, AddButton }

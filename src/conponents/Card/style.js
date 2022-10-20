@@ -12,11 +12,13 @@ const PokemonCard = styled.div`
 `;
 
 const PokemonName = styled.h2`
-  font-size: 25px;
+  font-size: 30px;
+  font-weight: 800;
   text-decoration: none;
   text-transform: capitalize;
   text-align: center;
   padding: 15px 0;
+  transition: 0.5s ease-in-out;
 `;
 
 const PokemonImg = styled.img`
