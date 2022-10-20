@@ -11,7 +11,9 @@ const AddButton = styled.button`
     color: #fff;
     font-weight: 900;
     text-transform: uppercase;
-    border: 1px solid #fff;
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 5px;
     cursor: pointer;  
 `;
 

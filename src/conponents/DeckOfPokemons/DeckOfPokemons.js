@@ -17,18 +17,6 @@ const PokemonsList = ({ limit }) => {
 
     const pokemonsId = getIdList(limit)
 
-    // const { theme } = useContext(ThemeContext)
-
-    // const handleMouseOver = () => {
-    //     let card = document.querySelector('.card')
-    //     card.style['border-color'] = '#f00'
-    // }
-
-    // const handleMouseOut = () => {
-    //     let card = document.querySelector('.card')
-    //     card.style['border-color'] = theme.border
-    // }
-
     return (
         <List>
             {

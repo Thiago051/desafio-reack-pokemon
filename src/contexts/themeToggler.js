@@ -9,7 +9,7 @@ export const themes = {
     dark: {
         color: '#fff',
         border: '#fff',
-        background: '#000'
+        background: '#24292e'
     }
 }
 

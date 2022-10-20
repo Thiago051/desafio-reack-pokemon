@@ -1,11 +1,12 @@
 import { pokemonAPI } from "../../services/api"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useContext } from "react"
 import { useParams } from 'react-router-dom'
 import GoBackLink from "../GoBackLink/GoBackLink"
 import Moves from "../Moves/Moves"
 import Abilities from "../Abilities/Abilities"
 import Types from "../Type/Types"
 import { DetailsMain, Info, PokemonName, PokemonImg, } from "./style"
+import { ThemeContext } from "../../contexts/themeToggler"
 
 
 const Pokemon = () => {
@@ -39,14 +40,21 @@ const Pokemon = () => {
         fetchData()
     }, [id])
 
+    const { theme } = useContext(ThemeContext)
+
     return (
         <>
             <GoBackLink />
-            <DetailsMain>
-                <Info>
-                    <PokemonName>{pokemon.name}</PokemonName>
+
+            <DetailsMain style={{ backgroundColor: theme.background }}>
+                
+                <Info style={{ borderColor: theme.border }}>
+                    <PokemonName style={{ color: theme.color }}>
+                        {pokemon.name}
+                    </PokemonName>
                     <PokemonImg src={pokemon.imageUrl} alt={pokemon.name} />
                 </Info>
+                
                 <Moves movesList={pokemon.moves} />
                 <Abilities abilitiesList={pokemon.abilities} />
                 <Types typesList={pokemon.types} />

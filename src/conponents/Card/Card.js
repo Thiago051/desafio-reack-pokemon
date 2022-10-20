@@ -8,16 +8,18 @@ const Card = ({ id }) => {
     const [animated, setAanimated] = useState(false)
     const { theme } = useContext(ThemeContext)
 
+    const  card = document.querySelector(`.card-${id}`)
+    
     const handleMouseOver = () => {
-        let card = document.querySelector(`.card-${id}`)
-        card.style['border-color'] = '#f00'
         setAanimated(true)
+        card.style['border-color'] = '#f00'
+        card.style['border-width'] = '5px'
     }
 
     const handleMouseOut = () => {
-        let card = document.querySelector(`.card-${id}`)
-        card.style['border-color'] = theme.border
         setAanimated(false)
+        card.style['border-color'] = theme.border
+        card.style['border-width'] = '2px'
     }
     
     const [pokemon, setPokemon] = useState({
@@ -45,14 +47,17 @@ const Card = ({ id }) => {
 
 
     return (
-        <PokemonCard className={`card-${id}`} animated={animated}
+        <PokemonCard className={`card-${id}`} 
+            animated={animated}
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
-            style={{ borderColor: theme.border }} > {/*borderColor: theme.border */}
+            style={{ borderColor: theme.border }} >
+
             <PokemonName style={{ color: theme.color }}>
                 {id} - {pokemon.name}
             </PokemonName>
             <PokemonImg src={pokemon.imageUrl} alt={pokemon.name} />
+
         </PokemonCard>
     )
 }

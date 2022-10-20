@@ -9,16 +9,10 @@ const PokemonCard = styled.div`
     border-style: solid;
     width: 200px;
     transition: 0.5s ease-in-out;
-    &:hover {
-      border-width: 3px;
-      border-style: solid;
-      border-color: #f00
-    }
 `;
 
 const PokemonName = styled.h2`
   font-size: 25px;
-  color: #fff;
   text-decoration: none;
   text-transform: capitalize;
   text-align: center;

@@ -6,9 +6,10 @@ const ThemeToggler = styled.div`
 
 const TogglerButton = styled.button`
     padding: 10px;
-    background-color: #cccc00;
-    color: #fff;
+    font-size: 16px;
     font-weight: 600;
+    border-width: 5px;
+    border-radius: 5px;
     cursor: pointer;
 `;
 

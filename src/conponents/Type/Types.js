@@ -1,9 +1,14 @@
+import { useContext } from "react";
+import { ThemeContext } from "../../contexts/themeToggler";
 import { TypesSection, Title, List, Item } from "./styles";
 
 const Types = ({ typesList }) => {
+
+    const { theme } = useContext(ThemeContext)
+
     return (
         <TypesSection>
-            <Title>Type</Title>
+            <Title style={{ color: theme.color }}>Type</Title>
             <List>
                 {
                     typesList.map((types, index) =>

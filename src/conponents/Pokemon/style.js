@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 const DetailsMain = styled.main`
+    margin-top: -110px;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
 `;
 
 const Info = styled.div`
-    border: 1px solid #fff;
+    border-width: 2px;
+    border-style: solid;
     text-align: center;
     border-radius: 5px;
     width: 350px;
@@ -29,4 +32,4 @@ const PokemonImg = styled.img`
 `;
 
 
-export {DetailsMain, Info, PokemonName, PokemonImg }
+export { DetailsMain, Info, PokemonName, PokemonImg }

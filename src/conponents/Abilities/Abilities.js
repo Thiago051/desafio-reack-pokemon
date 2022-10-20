@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { ThemeContext } from "../../contexts/themeToggler"
 import { pokemonAPI } from "../../services/api"
 import { AbilitiesSection, Title, Description, List, Item, AbilityName } from "./styles"
 
@@ -25,9 +26,11 @@ const AbilityDescription = ({ ability }) => {
 
 const Abilities = ({ abilitiesList }) => {
 
+    const { theme } = useContext(ThemeContext)
+
     return (
         <AbilitiesSection>
-            <Title>Abilities</Title>
+            <Title style={{ color: theme.color }}>Abilities</Title>
             <List>
                 {
                     abilitiesList.map((abilities, index) =>
