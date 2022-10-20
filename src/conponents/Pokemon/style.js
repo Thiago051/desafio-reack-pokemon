@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const DetailsMain = styled.main`
-    margin-top: -110px;
-    padding-top: 50px;
+    margin-top: -170px;
+    padding-top: 130px;
     display: flex;
     flex-direction: column;
     align-items: center;
