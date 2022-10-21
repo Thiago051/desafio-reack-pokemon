@@ -6,21 +6,6 @@ import { PokemonCard, PokemonName, PokemonImg } from "./style"
 const Card = ({ id }) => {
 
     const [animated, setAanimated] = useState(false)
-    const { theme } = useContext(ThemeContext)
-
-    const  card = document.querySelector(`.card-${id}`)
-    
-    const handleMouseOver = () => {
-        setAanimated(true)
-        card.style['border-color'] = '#f00'
-        card.style['border-width'] = '5px'
-    }
-
-    const handleMouseOut = () => {
-        setAanimated(false)
-        card.style['border-color'] = theme.border
-        card.style['border-width'] = '2px'
-    }
     
     const [pokemon, setPokemon] = useState({
         name: '',
@@ -45,9 +30,27 @@ const Card = ({ id }) => {
         fetchData()
     }, [id, animated])
 
+    const { theme } = useContext(ThemeContext)
+    
+    const  card = document.querySelector(`#card-${id}`)
+    
+    const setCardBorder = (color, width) => {
+        card.style['border-color'] = color
+        card.style['border-width'] = width
+    }
+
+    const handleMouseOver = () => {
+        setAanimated(true)
+        setCardBorder('#f00', '5px')
+    }
+
+    const handleMouseOut = () => {
+        setAanimated(false)
+        setCardBorder(theme.border, '2px')
+    }
 
     return (
-        <PokemonCard className={`card-${id}`} 
+        <PokemonCard id={`card-${id}`} 
             animated={animated}
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}

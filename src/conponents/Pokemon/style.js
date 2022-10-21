@@ -15,6 +15,7 @@ const Info = styled.div`
     border-radius: 5px;
     width: 350px;
     margin-bottom: 30px;
+    transition: 0.5s ease-in-out;
 `;
 
 const PokemonName = styled.h2`
@@ -22,6 +23,7 @@ const PokemonName = styled.h2`
     font-size: 50px;
     font-weight: 800;
     padding: 15px;
+    transition: 0.5s ease-in-out;
     
 `;
 

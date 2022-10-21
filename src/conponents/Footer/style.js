@@ -12,6 +12,7 @@ const AppFooter = styled.footer`
 const FooterText = styled.p`
     font-size: 25px;
     font-weight: 600;
+    transition: 0.5s ease-in-out;
 `;
 
 const FooterLink = styled.a`

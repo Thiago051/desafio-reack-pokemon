@@ -10,6 +10,7 @@ const Title = styled.h2`
     font-size: 30px;
     font-weight: 700;
     text-align: center;
+    transition: 0.5s ease-in-out;
 `;
 
 const List = styled.ul`

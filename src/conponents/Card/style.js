@@ -23,7 +23,7 @@ const PokemonName = styled.h2`
 
 const PokemonImg = styled.img`
     padding: 15px;
-    widtt: 160px;
+    width: 160px;
     height: 130px;
 `;
 
