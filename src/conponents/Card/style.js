@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
 const PokemonCard = styled.div`
-    display: flex;
-    flex-direction: column;   
-    justify-content: center;
+    text-align: center;
     border-radius: 5px;
     border-width: 2px;
     border-style: solid;
-    width: 200px;
+    width: 250px;
     transition: 0.5s ease-in-out;
 `;
 

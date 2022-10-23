@@ -25,7 +25,8 @@ const Pokemon = () => {
         async function fetchData() {
             const response = await pokemonAPI.getPokemon(id)
             const name = response.data.name
-            const imageUrl = response.data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+            const imageUrl = response.data['sprites']['other']['dream_world']['front_default']
+            //response.data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
             const moves = response.data.moves
             const abilities = response.data.abilities
             const types = response.data.types

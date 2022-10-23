@@ -28,8 +28,8 @@ const PokemonName = styled.h2`
 `;
 
 const PokemonImg = styled.img`
-    width: 100px;
-    heigth: 100px;
+    width: 200px;
+    heigth: 200px;
     margin-bottom: 30px;
 `;
 

@@ -20,7 +20,8 @@ const Card = ({ id }) => {
                 animated ?
                     response.data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
                     :
-                    response.data['sprites']['versions']['generation-v']['black-white']['front_default']
+                    response.data['sprites']['other']['dream_world']['front_default']
+                    //response.data['sprites']['versions']['generation-v']['black-white']['front_default']
 
             setPokemon({
                 name: name,
@@ -32,11 +33,10 @@ const Card = ({ id }) => {
 
     const { theme } = useContext(ThemeContext)
     
-    const  card = document.querySelector(`#card-${id}`)
-    
     const setCardBorder = (color, width) => {
-        card.style['border-color'] = color
-        card.style['border-width'] = width
+        let  card = document.querySelector(`#card-${id}`).style
+        card.borderColor = color
+        card.borderWidth = width
     }
 
     const handleMouseOver = () => {
@@ -50,8 +50,7 @@ const Card = ({ id }) => {
     }
 
     return (
-        <PokemonCard id={`card-${id}`} 
-            animated={animated}
+        <PokemonCard id={`card-${id}`}
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
             style={{ borderColor: theme.border }} >
