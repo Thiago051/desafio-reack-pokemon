@@ -11,6 +11,12 @@ const pokemonAPI = {
     },
     getAbilityText(ability) {
         return api.get(`ability/${ability}`)
+    },
+    getPokemonsByType(type) {
+        return api.get(`type/${type}`)
+    },
+    getTypes() {
+        return api.get('type')
     }
 }
 
