@@ -4,13 +4,13 @@ import { pokemonAPI } from "../../services/api"
 import { PokemonCard, PokemonName, PokemonImg } from "./style"
 
 const Card = ({ id }) => {
-
-    const [animated, setAanimated] = useState(false)
     
     const [pokemon, setPokemon] = useState({
         name: '',
         imageUrl: ''
     })
+
+    const [animated, setAanimated] = useState(false)
 
     useEffect(() => {
         async function fetchData() {
@@ -21,7 +21,6 @@ const Card = ({ id }) => {
                     response.data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
                     :
                     response.data['sprites']['other']['dream_world']['front_default']
-                    //response.data['sprites']['versions']['generation-v']['black-white']['front_default']
 
             setPokemon({
                 name: name,
