@@ -26,22 +26,26 @@ const Select = () => {
         setType(target.value)
 
     }
-    console.log(type)
 
     const { theme } = useContext(ThemeContext)
+
+    const filteredTypes = pokemonTypes.filter(type => type.name !== 'unknown' && type.name !== 'shadow')
 
     return (
         <>
             <TypeFilter style={{backgroundColor: theme.background, color: theme.color}}>
+                
                 Filter Pokemon By Type: {" "}
+                
                 <SelectType onChange={handleOptionChange}>
-                    <option value='all' >all pokemons</option>
+                    <option value='all' >all types</option>
                     {
-                        pokemonTypes.map((type, index) =>
+                        filteredTypes.map((type, index) =>
                             <option value={type.name} key={index}>{type.name}</option>
                         )
                     }
                 </SelectType>
+            
             </TypeFilter>
             {
                 type === 'all' ? <DeckOfPokemons /> : <FilterByType type={type} />
