@@ -19,7 +19,8 @@
 Este foi o meu primeiro projeto pessoal desenvolvido com React JS. Projeto desenvolvido com a finalidade de testar conhecimentos técnicos adquiridos no estudo de desenvovimento de aplicações com React JS.
 
 ## Funcionalidade
-O projeto conta com uma lista inicial de 20 pokemons e com um botão onde é possível adicionar mais 20 pokemons a cada clique no botão. Cada pokemon na lista é apresentado com seu nome e imagem, ao clicar no pokemom é aberto uma página de informações do pokemom clicado. Na página de informações está apresentado os movimentos, abilidades e o tipo do pokemom.\
+O projeto conta com uma lista inicial de 20 pokemons e com um botão onde é possível adicionar mais 20 pokemons a cada clique no botão. Também é possível fitrar os pokemons pelo tipo.\
+Cada pokemon na lista é apresentado com seu nome e imagem, ao clicar no pokemom é aberto uma página de informações do pokemom clicado. Na página de informações está apresentado os movimentos, abilidades e o tipo do pokemom.\
 A página de informações também conta com um botão na lateral esquerda superior, onde ao clicar será possível retornar para a listagem de pokemons.\
 O projeto também possui troca de temas, onde é possível alternar entre os temas Dark e Light, sendo Dark o tema padrão.
 
