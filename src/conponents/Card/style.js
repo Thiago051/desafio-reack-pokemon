@@ -6,6 +6,8 @@ const PokemonCard = styled.div`
     border-width: 2px;
     border-style: solid;
     width: 250px;
+    height: 275px;
+    padding: 0 10px;
     transition: 0.5s ease-in-out;
 `;
 
@@ -20,7 +22,7 @@ const PokemonName = styled.h2`
 `;
 
 const PokemonImg = styled.img`
-    padding: 15px;
+    padding: 15px 0;
     width: 160px;
     height: 130px;
 `;

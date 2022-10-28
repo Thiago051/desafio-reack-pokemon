@@ -18,25 +18,22 @@ const Select = () => {
         fetchData()
     }, [])
 
-
     const [type, setType] = useState('all')
 
     const handleOptionChange = (event) => {
         const { target } = event
         setType(target.value)
-
     }
-
-    const { theme } = useContext(ThemeContext)
 
     const filteredTypes = pokemonTypes.filter(type => type.name !== 'unknown' && type.name !== 'shadow')
 
+    const { theme } = useContext(ThemeContext)
+
     return (
         <>
-            <TypeFilter style={{backgroundColor: theme.background, color: theme.color}}>
-                
-                Filter Pokemon By Type: {" "}
-                
+            <TypeFilter style={{ backgroundColor: theme.background, color: theme.color }}>
+
+                Filter Pokemons By Type: {" "}
                 <SelectType onChange={handleOptionChange}>
                     <option value='all' >all types</option>
                     {
@@ -45,11 +42,12 @@ const Select = () => {
                         )
                     }
                 </SelectType>
-            
+
             </TypeFilter>
-            {
-                type === 'all' ? <DeckOfPokemons /> : <FilterByType type={type} />
-            }
+
+            <div style={{ minHeight: '1080px', backgroundColor: theme.background }}>
+                {type === 'all' ? <DeckOfPokemons /> : <FilterByType type={type} />}
+            </div>
         </>
 
 
