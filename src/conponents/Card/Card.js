@@ -4,7 +4,7 @@ import { pokemonAPI } from "../../services/api"
 import { PokemonCard, PokemonName, PokemonImg } from "./style"
 
 const Card = ({ id }) => {
-    
+
     const [pokemon, setPokemon] = useState({
         name: '',
         imageUrl: ''
@@ -16,11 +16,16 @@ const Card = ({ id }) => {
         async function fetchData() {
             const response = await pokemonAPI.getPokemon(id)
             const name = response.data.name
-            const imageUrl =
+            let imageUrl =
                 animated ?
                     response.data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
                     :
                     response.data['sprites']['other']['dream_world']['front_default']
+
+            if (imageUrl === null) imageUrl = response.data['sprites']['other']['official-artwork']['front_default']
+            if (imageUrl === null) imageUrl = response.data['sprites']['front_default']
+            if (imageUrl === null) imageUrl = response.data['sprites']['other']['home']['front_default']
+            if (imageUrl === null) imageUrl = response.data['sprites']['versions']['generation-viii']['icons']['front_default']
 
             setPokemon({
                 name: name,
@@ -31,9 +36,9 @@ const Card = ({ id }) => {
     }, [id, animated])
 
     const { theme } = useContext(ThemeContext)
-    
+
     const setCardBorder = (color, width) => {
-        let  card = document.querySelector(`#card-${id}`).style
+        let card = document.querySelector(`#card-${id}`).style
         card.borderColor = color
         card.borderWidth = width
     }
