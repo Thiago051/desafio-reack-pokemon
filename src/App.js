@@ -1,7 +1,7 @@
 import './App.css';
 import { AppRoutes } from './pages/routes';
 import { createGlobalStyle } from 'styled-components'
-import { ThemeProvider } from './contexts/themeToggler';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 function App() {
   return (

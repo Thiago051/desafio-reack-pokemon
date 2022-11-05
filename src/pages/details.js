@@ -1,8 +1,8 @@
-import { Header } from "../conponents/Header/Header"
-import { Pokemon } from "../conponents/Pokemon/Pokemon"
-import { Footer } from "../conponents/Footer/Footer"
+import { Header } from "../components/Header/Header"
+import { Pokemon } from "../components/Pokemon/Pokemon"
+import { Footer } from "../components/Footer/Footer"
 
-const PokemonDetails = () => {
+export const PokemonDetails = () => {
     return (
         <>
             <Header />
@@ -11,5 +11,3 @@ const PokemonDetails = () => {
         </>
     )
 }
-
-export { PokemonDetails }
