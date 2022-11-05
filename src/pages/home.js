@@ -1,17 +1,13 @@
-import Header from '../conponents/Header/Header';
-// import DeckOfPokemons from '../conponents/DeckOfPokemons/DeckOfPokemons';
-import Footer from '../conponents/Footer/Footer';
-import Select from '../conponents/Select/Select';
+import { Header } from '../conponents/Header/Header';
+import { Footer } from '../conponents/Footer/Footer';
+import { SelectPokemonType } from '../conponents/SelectPokemonType/SelectPokemonType';
 
-const Home = () => {
+export const Home = () => {
     return (
         <>
             <Header />
-            <Select />
+            <SelectPokemonType />
             <Footer />
         </>
-
     )
 }
-
-export default Home

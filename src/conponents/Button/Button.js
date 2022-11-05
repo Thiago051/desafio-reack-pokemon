@@ -2,7 +2,7 @@ import { useContext } from "react"
 import { ThemeContext } from "../../contexts/themeToggler"
 import { AddMorePokemons, AddButton } from "./style"
 
-const Button = (props) => {
+export const Button = (props) => {
 
     const { theme } = useContext(ThemeContext)
 
@@ -12,5 +12,3 @@ const Button = (props) => {
         </AddMorePokemons>
     )
 }
-
-export default Button

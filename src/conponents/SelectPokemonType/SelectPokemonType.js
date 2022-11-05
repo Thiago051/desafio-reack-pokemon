@@ -1,12 +1,11 @@
 import { useContext, useEffect, useState } from "react"
 import { ThemeContext } from "../../contexts/themeToggler";
 import { pokemonAPI } from "../../services/api"
-import DeckOfPokemons from "../DeckOfPokemons/DeckOfPokemons"
-import FilterByType from "../FilterByType/FilterByType"
-
+import { AllPokemons } from "../AllPokemons/AllPokemons"
+import { FilterByType } from "../FilterByType/FilterByType"
 import { TypeFilter, SelectType } from "./style";
 
-const Select = () => {
+export const SelectPokemonType = () => {
 
     const [pokemonTypes, setPokemonTypes] = useState([])
 
@@ -21,8 +20,7 @@ const Select = () => {
     const [type, setType] = useState('all')
 
     const handleOptionChange = (event) => {
-        const { target } = event
-        setType(target.value)
+        setType(event.target.value)
     }
 
     const filteredTypes = pokemonTypes.filter(type => type.name !== 'unknown' && type.name !== 'shadow')
@@ -32,7 +30,6 @@ const Select = () => {
     return (
         <>
             <TypeFilter style={{ backgroundColor: theme.background, color: theme.color }}>
-
                 Filter Pokemons By Type: {" "}
                 <SelectType onChange={handleOptionChange}>
                     <option value='all' >all types</option>
@@ -42,16 +39,12 @@ const Select = () => {
                         )
                     }
                 </SelectType>
-
             </TypeFilter>
 
             <div style={{ minHeight: '1080px', backgroundColor: theme.background }}>
-                {type === 'all' ? <DeckOfPokemons /> : <FilterByType type={type} />}
+                {type === 'all' ? <AllPokemons /> : <FilterByType type={type} />}
             </div>
         </>
 
-
     )
 }
-
-export default Select

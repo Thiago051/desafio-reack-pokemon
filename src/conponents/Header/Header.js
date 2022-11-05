@@ -1,7 +1,6 @@
-import { AppHeader, AppInfo, AppTitle, AppLogo } from "./style"
-
 import logo from "../../images/logo.svg"
 import { ThemeTogglerButton } from "../ThemeTogglerButton/ThemeTogglerButton"
+import { AppHeader, AppInfo, AppTitle, AppLogo } from "./style"
 
 const Header = () => {
     return (
@@ -11,10 +10,10 @@ const Header = () => {
                     <AppLogo src={logo} alt="PokeDex" />
                     <AppTitle>PokeDex</AppTitle>
                 </AppInfo>
-                <ThemeTogglerButton /> 
+                <ThemeTogglerButton />
             </AppHeader>
         </>
     )
 }
 
-export default Header
+export { Header }

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom"
 import { GoBack, Img } from "./style"
 import arrowLeft from "../../images/left-arrow.svg"
 
-const GoBackLink = () => {
-    return  (
+export const GoBackLink = () => {
+    return (
         <GoBack>
             <Link to={'/'}>
                 <span>
@@ -12,6 +12,4 @@ const GoBackLink = () => {
             </Link>
         </GoBack>
     )
-} 
-
-export default GoBackLink
+}

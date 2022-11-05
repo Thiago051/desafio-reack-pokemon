@@ -1,21 +1,21 @@
 import { pokemonAPI } from "../../services/api"
 import { useState, useEffect, useContext } from "react"
 import { useParams } from 'react-router-dom'
-import GoBackLink from "../GoBackLink/GoBackLink"
-import Moves from "../Moves/Moves"
-import Abilities from "../Abilities/Abilities"
-import Types from "../Type/Types"
+import { GoBackLink } from "../GoBackLink/GoBackLink"
+import { Moves } from "../Moves/Moves"
+import { Abilities } from "../Abilities/Abilities"
+import { Types } from "../Type/Types"
 import { DetailsMain, Info, PokemonName, PokemonImg, } from "./style"
 import { ThemeContext } from "../../contexts/themeToggler"
+import { selectImage } from "../Card/Card"
 
-
-const Pokemon = () => {
+export const Pokemon = () => {
 
     const { id } = useParams()
 
     const [pokemon, setPokemon] = useState({
-        imageUrl: '',
         name: '',
+        imageUrl: '',
         moves: [],
         abilities: [],
         types: []
@@ -25,18 +25,13 @@ const Pokemon = () => {
         async function fetchData() {
             const response = await pokemonAPI.getPokemon(id)
             const name = response.data.name
-            let imageUrl = response.data['sprites']['other']['dream_world']['front_default']
+            const imageUrl = response.data.sprites.other['dream_world']['front_default']
             const moves = response.data.moves
             const abilities = response.data.abilities
             const types = response.data.types
 
-            if (imageUrl === null) imageUrl = response.data['sprites']['other']['official-artwork']['front_default']
-            if (imageUrl === null) imageUrl = response.data['sprites']['front_default']
-            if (imageUrl === null) imageUrl = response.data['sprites']['other']['home']['front_default']
-            if (imageUrl === null) imageUrl = response.data['sprites']['versions']['generation-viii']['icons']['front_default']
-            
             setPokemon({
-                imageUrl: imageUrl,
+                imageUrl: imageUrl ?? selectImage(response),
                 name: name,
                 moves: moves,
                 abilities: abilities,
@@ -51,23 +46,17 @@ const Pokemon = () => {
     return (
         <>
             <GoBackLink />
-
             <DetailsMain style={{ backgroundColor: theme.background }}>
-                
                 <Info style={{ borderColor: theme.border }}>
                     <PokemonName style={{ color: theme.color }}>
                         {pokemon.name}
                     </PokemonName>
                     <PokemonImg src={pokemon.imageUrl} alt={pokemon.name} />
                 </Info>
-                
                 <Moves movesList={pokemon.moves} />
                 <Abilities abilitiesList={pokemon.abilities} />
                 <Types typesList={pokemon.types} />
-
             </DetailsMain>
         </>
     )
 }
-
-export default Pokemon

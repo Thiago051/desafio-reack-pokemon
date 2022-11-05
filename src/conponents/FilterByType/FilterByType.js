@@ -2,11 +2,10 @@ import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { ThemeContext } from "../../contexts/themeToggler"
 import { pokemonAPI } from "../../services/api"
-import Card from "../Card/Card"
-
+import { Card } from "../Card/Card"
 import { Main, List, Item } from "./style"
 
-const FilterByType = ({ type }) => {
+export const FilterByType = ({ type }) => {
 
     const [pokemonsList, setPokemonsList] = useState([])
 
@@ -33,9 +32,6 @@ const FilterByType = ({ type }) => {
                     )
                 }
             </List>
-
         </Main>
     )
 }
-
-export default FilterByType

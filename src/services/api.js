@@ -5,7 +5,7 @@ const api = axios.create({
     baseURL: baseUrl
 })
 
-const pokemonAPI = {
+export const pokemonAPI = {
     getPokemon(id) {
         return api.get(`pokemon/${id}`)
     },
@@ -19,5 +19,3 @@ const pokemonAPI = {
         return api.get('type')
     }
 }
-
-export { pokemonAPI }

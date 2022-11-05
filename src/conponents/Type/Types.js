@@ -22,4 +22,4 @@ const Types = ({ typesList }) => {
     )
 }
 
-export default Types
+export { Types }

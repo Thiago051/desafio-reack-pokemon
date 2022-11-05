@@ -24,7 +24,7 @@ const AbilityDescription = ({ ability }) => {
     )
 }
 
-const Abilities = ({ abilitiesList }) => {
+export const Abilities = ({ abilitiesList }) => {
 
     const { theme } = useContext(ThemeContext)
 
@@ -44,6 +44,3 @@ const Abilities = ({ abilitiesList }) => {
         </AbilitiesSection>
     )
 }
-
-
-export default Abilities

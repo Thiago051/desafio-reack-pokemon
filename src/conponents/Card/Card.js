@@ -3,7 +3,15 @@ import { ThemeContext } from "../../contexts/themeToggler"
 import { pokemonAPI } from "../../services/api"
 import { PokemonCard, PokemonName, PokemonImg } from "./style"
 
-const Card = ({ id }) => {
+export const selectImage = (response) => {
+    let imageUrl = response.data.sprites.other['official-artwork']['front_default']
+    if (imageUrl === null) imageUrl = response.data.sprites['front_default']
+    if (imageUrl === null) imageUrl = response.data.sprites.other.home['front_default']
+    if (imageUrl === null) imageUrl = response.data.sprites.versions['generation-viii']['icons']['front_default']
+    return imageUrl
+}
+
+export const Card = ({ id }) => {
 
     const [pokemon, setPokemon] = useState({
         name: '',
@@ -16,20 +24,15 @@ const Card = ({ id }) => {
         async function fetchData() {
             const response = await pokemonAPI.getPokemon(id)
             const name = response.data.name
-            let imageUrl =
+            const imageUrl =
                 animated ?
-                    response.data['sprites']['versions']['generation-v']['black-white']['animated']['front_default']
+                    response.data.sprites.versions['generation-v']['black-white']['animated']['front_default']
                     :
-                    response.data['sprites']['other']['dream_world']['front_default']
-
-            if (imageUrl === null) imageUrl = response.data['sprites']['other']['official-artwork']['front_default']
-            if (imageUrl === null) imageUrl = response.data['sprites']['front_default']
-            if (imageUrl === null) imageUrl = response.data['sprites']['other']['home']['front_default']
-            if (imageUrl === null) imageUrl = response.data['sprites']['versions']['generation-viii']['icons']['front_default']
+                    response.data.sprites.other['dream_world']['front_default']
 
             setPokemon({
                 name: name,
-                imageUrl: imageUrl
+                imageUrl: imageUrl ?? selectImage(response)
             })
         }
         fetchData()
@@ -63,9 +66,6 @@ const Card = ({ id }) => {
                 {pokemon.name}
             </PokemonName>
             <PokemonImg src={pokemon.imageUrl} alt={pokemon.name} />
-
         </PokemonCard>
     )
 }
-
-export default Card

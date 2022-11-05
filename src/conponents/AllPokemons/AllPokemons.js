@@ -2,8 +2,8 @@ import { useContext, useState } from "react"
 import { Link } from 'react-router-dom'
 import { ThemeContext } from "../../contexts/themeToggler"
 import { initialPokemonsQuantity } from "../../variables/variables"
-import Button from "../Button/Button"
-import Card from "../Card/Card"
+import { Button } from "../Button/Button"
+import { Card } from "../Card/Card"
 import { Main, Deck, List, Item } from "./style"
 
 const getIdList = (limit) => {
@@ -11,7 +11,6 @@ const getIdList = (limit) => {
     for (let id = 1; id <= limit; id++) ids.push(id)
     return ids
 }
-
 
 const PokemonsList = ({ limit }) => {
 
@@ -32,14 +31,12 @@ const PokemonsList = ({ limit }) => {
     )
 }
 
-
-const DeckOfPokemons = () => {
+export const AllPokemons = () => {
 
     const [limit, setLimit] = useState(initialPokemonsQuantity)
 
     const handleClick = () => {
         setLimit(initialPokemonsQuantity + limit)
-        // scroll()
     }
 
     const { theme } = useContext(ThemeContext)
@@ -53,5 +50,3 @@ const DeckOfPokemons = () => {
         </Main>
     )
 }
-
-export default DeckOfPokemons

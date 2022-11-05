@@ -1,6 +1,6 @@
-import Header from "../conponents/Header/Header"
-import Pokemon from "../conponents/Pokemon/Pokemon"
-import Footer from "../conponents/Footer/Footer"
+import { Header } from "../conponents/Header/Header"
+import { Pokemon } from "../conponents/Pokemon/Pokemon"
+import { Footer } from "../conponents/Footer/Footer"
 
 const PokemonDetails = () => {
     return (
@@ -12,4 +12,4 @@ const PokemonDetails = () => {
     )
 }
 
-export default PokemonDetails
+export { PokemonDetails }
