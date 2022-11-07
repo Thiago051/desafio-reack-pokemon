@@ -1,7 +1,7 @@
 import { useContext, useState } from "react"
 import { Link } from 'react-router-dom'
 import { ThemeContext } from "../../contexts/ThemeContext"
-import { initialPokemonsQuantity } from "../../variables/variables"
+import { initialPokemonsQuantity, totalOfPokemons } from "../../variables/variables"
 import { Button } from "../Button/Button"
 import { Card } from "../Card/Card"
 import { Main, Deck, List, Item } from "./style"
@@ -13,6 +13,8 @@ const getIdList = (limit) => {
 }
 
 const PokemonsList = ({ limit }) => {
+
+    if (limit > totalOfPokemons) limit = totalOfPokemons
 
     const pokemonsId = getIdList(limit)
 
@@ -35,9 +37,7 @@ export const AllPokemons = () => {
 
     const [limit, setLimit] = useState(initialPokemonsQuantity)
 
-    const handleClick = () => {
-        setLimit(initialPokemonsQuantity + limit)
-    }
+    const handleClick = () => setLimit(initialPokemonsQuantity + limit)
 
     const { theme } = useContext(ThemeContext)
 

@@ -1,5 +1,3 @@
-const baseUrl = 'https://pokeapi.co/api/v2/'
-const initialPokemonsQuantity = 20
-
-
-export {baseUrl, initialPokemonsQuantity}
+export const baseUrl = 'https://pokeapi.co/api/v2/'
+export const initialPokemonsQuantity = 20
+export const totalOfPokemons = 1154

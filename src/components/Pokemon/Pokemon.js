@@ -43,6 +43,8 @@ export const Pokemon = () => {
 
     const { theme } = useContext(ThemeContext)
 
+    window.scrollTo({ top: 0, behavior: 'auto' })
+
     return (
         <>
             <GoBackLink />

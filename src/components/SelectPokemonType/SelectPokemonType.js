@@ -19,9 +19,7 @@ export const SelectPokemonType = () => {
 
     const [type, setType] = useState('all')
 
-    const handleOptionChange = (event) => {
-        setType(event.target.value)
-    }
+    const handleOptionChange = (event) => setType(event.target.value)
 
     const filteredTypes = pokemonTypes.filter(type => type.name !== 'unknown' && type.name !== 'shadow')
 
