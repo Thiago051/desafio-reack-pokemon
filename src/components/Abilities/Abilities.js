@@ -18,13 +18,12 @@ const AbilityDescription = ({ ability }) => {
         fetchData()
     }, [ability])
 
-    return (
-        <Description>{abilityText}</Description>
-    )
+    return <Description>{abilityText}</Description>
 }
 
 export const Abilities = ({ abilitiesList }) => {
 
+    const abilities = abilitiesList.map(abilities => abilities.ability.name)
     const { theme } = useContext(ThemeContext)
 
     return (
@@ -32,10 +31,10 @@ export const Abilities = ({ abilitiesList }) => {
             <Title style={{ color: theme.color }}>Abilities</Title>
             <List>
                 {
-                    abilitiesList.map((abilities, index) =>
+                    abilities.map((ability, index) =>
                         <Item key={index}>
-                            <AbilityName>{abilities.ability.name}</AbilityName>
-                            <AbilityDescription ability={abilities.ability.name} />
+                            <AbilityName>{ability}</AbilityName>
+                            <AbilityDescription ability={ability} />
                         </Item>
                     )
                 }
