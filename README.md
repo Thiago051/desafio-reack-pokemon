@@ -12,38 +12,50 @@
 
 # Site do projeto: [React Pokedex](https://thiago-react-pokedex.netlify.app)
 
-
 </div>
 
 ## Descrição
+
 Este foi o meu primeiro projeto pessoal desenvolvido com React JS. Projeto desenvolvido com a finalidade de testar conhecimentos técnicos adquiridos no estudo de desenvovimento de aplicações com React JS.
 
 ## Funcionalidade
+
 O projeto conta com uma lista inicial de 20 pokemons e com um botão onde é possível adicionar mais 20 pokemons a cada clique no botão. Também é possível fitrar os pokemons pelo tipo.\
 Cada pokemon na lista é apresentado com seu nome e imagem, ao clicar no pokemom é aberto uma página de informações do pokemom clicado. Na página de informações está apresentado os movimentos, abilidades e o tipo do pokemom.\
 A página de informações também conta com um botão na lateral esquerda superior, onde ao clicar será possível retornar para a listagem de pokemons.\
 O projeto também possui troca de temas, onde é possível alternar entre os temas Dark e Light, sendo Dark o tema padrão.
 
 ## Ferramentas Utilizadas
+
 * [PokéAPI](https://pokeapi.co/)
 * React Js
 * Axios
 * React Router
 * Styled Components
+
 ## Passos para executar o projeto
 
 * ### Clone o repositório
-    #### `git clone git@github.com:Thiago051/desafio-react-pokemon.git`
+
+```bash
+git clone git@github.com:Thiago051/desafio-react-pokemon.git
+```
 
 * ### Entre na pasta do projeto
-    #### `cd desafio-react-pokemon`
 
+```bash
+cd desafio-react-pokemon
+```
 * ### Instale as dependências do projeto
-    #### `npm install`
 
+```bash
+npm install
+```
 * ### Inicie o projeto
-    #### `npm start`
 
-* ### Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar.
+```bash
+npm start
+```
+* ### Abra [http://localhost:3000](http://localhost:3000) no seu navegador para visualizar
 
-## Esse projeto foi criado utilizando [Create React App](https://github.com/facebook/create-react-app).
+## Esse projeto foi criado utilizando [Create React App](https://github.com/facebook/create-react-app)
