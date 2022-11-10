@@ -1,6 +1,6 @@
 import { pokemonAPI } from "../../services/api"
 import { useState, useEffect, useContext } from "react"
-import { useParams } from 'react-router-dom'
+// import { useParams } from 'react-router-dom'
 import { GoBackLink } from "../GoBackLink"
 import { Moves } from "../Moves"
 import { Abilities } from "../Abilities"
@@ -9,9 +9,7 @@ import { DetailsMain, Info, PokemonName, PokemonImg, } from "./style"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { selectImage } from "../Card"
 
-export const Pokemon = () => {
-
-    const { id } = useParams()
+export const Pokemon = ({ id }) => {
 
     const [pokemon, setPokemon] = useState({
         name: '',
@@ -25,13 +23,13 @@ export const Pokemon = () => {
         async function fetchData() {
             const response = await pokemonAPI.getPokemon(id)
             const name = response.data.name
-            const imageUrl = response.data.sprites.other['dream_world']['front_default']
+            const imageUrl = response.data.sprites.other['dream_world']['front_default'] ?? selectImage(response)
             const moves = response.data.moves
             const abilities = response.data.abilities
             const types = response.data.types
 
             setPokemon({
-                imageUrl: imageUrl ?? selectImage(response),
+                imageUrl: imageUrl,
                 name: name,
                 moves: moves,
                 abilities: abilities,
