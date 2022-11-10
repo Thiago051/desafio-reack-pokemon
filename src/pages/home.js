@@ -1,6 +1,6 @@
-import { Header } from '../components/Header/Header';
-import { Footer } from '../components/Footer/Footer';
-import { SelectPokemonType } from '../components/SelectPokemonType/SelectPokemonType';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
+import { SelectPokemonType } from '../components/SelectPokemonType';
 
 export const Home = () => {
     return (

@@ -2,8 +2,8 @@ import { useContext, useState } from "react"
 import { Link } from 'react-router-dom'
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { initialPokemonsQuantity, totalOfPokemons } from "../../variables/variables"
-import { Button } from "../Button/Button"
-import { Card } from "../Card/Card"
+import { Button } from "../Button"
+import { Card } from "../Card"
 import { Main, Deck, List, Item } from "./style"
 
 const getIdList = (limit) => {

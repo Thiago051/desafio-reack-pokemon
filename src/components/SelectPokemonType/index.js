@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { pokemonAPI } from "../../services/api"
-import { AllPokemons } from "../AllPokemons/AllPokemons"
-import { FilterByType } from "../FilterByType/FilterByType"
+import { AllPokemons } from "../AllPokemons"
+import { FilterByType } from "../FilterByType"
 import { TypeFilter, SelectType } from "./style";
 
 export const SelectPokemonType = () => {
@@ -33,7 +33,7 @@ export const SelectPokemonType = () => {
             <TypeFilter style={{ backgroundColor: theme.background, color: theme.color }}>
                 Filter Pokemons By Type: {" "}
                 <SelectType onChange={handleOptionChange}>
-                    <option value='all types' disabled={true}></option>
+                    <option value={type} disabled={true}></option>
                     {
                         filteredTypes.map((type, index) =>
                             <option value={type} key={index}>{type}</option>

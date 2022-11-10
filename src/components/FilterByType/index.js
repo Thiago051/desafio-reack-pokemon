@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { pokemonAPI } from "../../services/api"
-import { Card } from "../Card/Card"
+import { Card } from "../Card"
 import { Main, List, Item } from "./style"
 
 export const FilterByType = ({ type }) => {

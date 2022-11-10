@@ -1,5 +1,5 @@
 import logo from "../../images/logo.svg"
-import { ThemeTogglerButton } from "../ThemeTogglerButton/ThemeTogglerButton"
+import { ThemeTogglerButton } from "../ThemeTogglerButton"
 import { AppHeader, AppInfo, AppTitle, AppLogo } from "./style"
 
 export const Header = () => {

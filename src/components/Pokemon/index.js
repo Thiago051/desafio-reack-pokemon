@@ -1,13 +1,13 @@
 import { pokemonAPI } from "../../services/api"
 import { useState, useEffect, useContext } from "react"
 import { useParams } from 'react-router-dom'
-import { GoBackLink } from "../GoBackLink/GoBackLink"
-import { Moves } from "../Moves/Moves"
-import { Abilities } from "../Abilities/Abilities"
-import { Type } from "../Type/Type"
+import { GoBackLink } from "../GoBackLink"
+import { Moves } from "../Moves"
+import { Abilities } from "../Abilities"
+import { Type } from "../Type"
 import { DetailsMain, Info, PokemonName, PokemonImg, } from "./style"
 import { ThemeContext } from "../../contexts/ThemeContext"
-import { selectImage } from "../Card/Card"
+import { selectImage } from "../Card"
 
 export const Pokemon = () => {
 
