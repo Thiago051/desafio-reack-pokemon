@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AppHeader = styled.div`
+export const Header = styled.div`
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -15,20 +15,20 @@ export const AppHeader = styled.div`
     box-shadow: rgba(600, 0, 0, 0.5) 0px 8px 24px;
 `;
 
-export const AppInfo = styled.div`
+export const Info = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 `;
 
-export const AppTitle = styled.h1`
+export const Title = styled.h1`
     color: #fff;
     text-align:center;
     font-weight: 700;
 `;
 
-export const AppLogo = styled.img`
+export const Logo = styled.img`
     width: 50px;
     height: 50px;
 `;

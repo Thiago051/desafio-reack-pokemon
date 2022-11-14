@@ -3,35 +3,36 @@ import { Link } from "react-router-dom"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { pokemonAPI } from "../../services/api"
 import { Card } from "../Card"
-import { Main, List, Item } from "./style"
+import * as styled from "./style"
 
 export const FilterByType = ({ type }) => {
 
     const [pokemonsList, setPokemonsList] = useState([])
 
     useEffect(() => {
-        async function fetchData() {
+        const fetchData = async () => {
             const response = await pokemonAPI.getPokemonsByType(type)
             setPokemonsList(response.data.pokemon)
         }
         fetchData()
     }, [type])
 
+    const pokemons = pokemonsList.map(pokemons => pokemons.pokemon.name)
     const { theme } = useContext(ThemeContext)
 
     return (
-        <Main style={{ backgroundColor: theme.background }}>
-            <List>
+        <styled.Main style={{ backgroundColor: theme.background }}>
+            <styled.List>
                 {
-                    pokemonsList.map((pokemons, index) =>
-                        <Item key={index}>
-                            <Link to={`pokemon/${pokemons.pokemon.name}`}>
-                                <Card id={pokemons.pokemon.name} />
+                    pokemons.map((pokemon, index) =>
+                        <styled.Item key={index}>
+                            <Link to={`pokemon/${pokemon}`}>
+                                <Card id={pokemon} />
                             </Link>
-                        </Item>
+                        </styled.Item>
                     )
                 }
-            </List>
-        </Main>
+            </styled.List>
+        </styled.Main>
     )
 }

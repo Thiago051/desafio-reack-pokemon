@@ -5,14 +5,12 @@ export const Main = styled.main`
     padding: 50px 0;
 `;
 
-
 export const List = styled.ul`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
 `;
-
 
 export const Item = styled.li`
     margin: 5px;

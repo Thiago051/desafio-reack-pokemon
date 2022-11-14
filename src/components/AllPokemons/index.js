@@ -4,7 +4,7 @@ import { ThemeContext } from "../../contexts/ThemeContext"
 import { initialPokemonsQuantity, totalOfPokemons } from "../../variables/variables"
 import { Button } from "../Button"
 import { Card } from "../Card"
-import { Main, Deck, List, Item } from "./style"
+import * as styled from "./style"
 
 const getIdList = (limit) => {
     let ids = []
@@ -19,17 +19,17 @@ const PokemonsList = ({ limit }) => {
     const pokemonsId = getIdList(limit)
 
     return (
-        <List>
+        <styled.List>
             {
                 pokemonsId.map((id, index) =>
-                    <Item key={index}>
+                    <styled.Item key={index}>
                         <Link to={`pokemon/${id}`}>
                             <Card id={id} />
                         </Link>
-                    </Item>
+                    </styled.Item>
                 )
             }
-        </List>
+        </styled.List>
     )
 }
 
@@ -42,11 +42,11 @@ export const AllPokemons = () => {
     const { theme } = useContext(ThemeContext)
 
     return (
-        <Main style={{ backgroundColor: theme.background }}>
-            <Deck>
+        <styled.Main style={{ backgroundColor: theme.background }}>
+            <styled.Pokemons>
                 <PokemonsList limit={limit} />
-            </Deck>
+            </styled.Pokemons>
             <Button onClick={handleClick}>Load More</Button>
-        </Main>
+        </styled.Main>
     )
 }

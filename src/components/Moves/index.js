@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
-import { MovesSection, Title, List, Item } from "./stye"
+import * as styled from "./stye"
 
 export const Moves = ({ movesList }) => {
 
@@ -8,11 +8,11 @@ export const Moves = ({ movesList }) => {
     const { theme } = useContext(ThemeContext)
     
     return (
-        <MovesSection>
-            <Title style={{ color: theme.color }}>Moves</Title>
-            <List>
-                {moves.map((move, index) => <Item key={index}>{move}</Item>)}
-            </List>
-        </MovesSection>
+        <styled.Section>
+            <styled.Title style={{ color: theme.color }}>Moves</styled.Title>
+            <styled.List>
+                {moves.map((move, index) => <styled.Item key={index}>{move}</styled.Item>)}
+            </styled.List>
+        </styled.Section>
     )
 }

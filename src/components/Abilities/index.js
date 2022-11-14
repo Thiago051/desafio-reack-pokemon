@@ -1,14 +1,14 @@
 import { useContext, useEffect, useState } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { pokemonAPI } from "../../services/api"
-import { AbilitiesSection, Title, Description, List, Item, AbilityName } from "./styles"
+import * as styled from "./style"
 
 const AbilityDescription = ({ ability }) => {
 
     const [abilityText, setAbilityText] = useState('')
 
     useEffect(() => {
-        async function fetchData() {
+        const fetchData = async () => {
             const response = await pokemonAPI.getAbilityText(ability)
             const text = response.data['effect_entries']
                 .filter(effect => effect.language.name === 'en')[0]['short_effect']
@@ -18,7 +18,7 @@ const AbilityDescription = ({ ability }) => {
         fetchData()
     }, [ability])
 
-    return <Description>{abilityText}</Description>
+    return <styled.Description>{abilityText}</styled.Description>
 }
 
 export const Abilities = ({ abilitiesList }) => {
@@ -27,18 +27,18 @@ export const Abilities = ({ abilitiesList }) => {
     const { theme } = useContext(ThemeContext)
 
     return (
-        <AbilitiesSection>
-            <Title style={{ color: theme.color }}>Abilities</Title>
-            <List>
+        <styled.Section>
+            <styled.Title style={{ color: theme.color }}>Abilities</styled.Title>
+            <styled.List>
                 {
                     abilities.map((ability, index) =>
-                        <Item key={index}>
-                            <AbilityName>{ability}</AbilityName>
+                        <styled.Item key={index}>
+                            <styled.Ability>{ability}</styled.Ability>
                             <AbilityDescription ability={ability} />
-                        </Item>
+                        </styled.Item>
                     )
                 }
-            </List>
-        </AbilitiesSection>
+            </styled.List>
+        </styled.Section>
     )
 }

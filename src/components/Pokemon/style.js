@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const DetailsMain = styled.main`
+export const Main = styled.main`
     margin-top: -170px;
     padding-top: 130px;
     display: flex;
@@ -18,7 +18,7 @@ export const Info = styled.div`
     transition: 0.5s ease-in-out;
 `;
 
-export const PokemonName = styled.h2`
+export const Name = styled.h2`
     text-transform: capitalize;
     font-size: 50px;
     font-weight: 800;
@@ -27,7 +27,7 @@ export const PokemonName = styled.h2`
     
 `;
 
-export const PokemonImg = styled.img`
+export const Img = styled.img`
     width: 200px;
     heigth: 200px;
     margin-bottom: 30px;

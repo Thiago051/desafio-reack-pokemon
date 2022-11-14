@@ -1,15 +1,8 @@
 import { useState, useEffect, useContext } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { pokemonAPI } from "../../services/api"
-import { PokemonCard, PokemonName, PokemonImg } from "./style"
-
-export const selectImage = (response) => {
-    let imageUrl = response.data.sprites.other['official-artwork']['front_default']
-    if (imageUrl === null) imageUrl = response.data.sprites['front_default']
-    if (imageUrl === null) imageUrl = response.data.sprites.other.home['front_default']
-    if (imageUrl === null) imageUrl = response.data.sprites.versions['generation-viii']['icons']['front_default']
-    return imageUrl
-}
+import { selectImage } from "../../utils/selectImage"
+import * as styled from "./style"
 
 export const Card = ({ id }) => {
 
@@ -21,14 +14,13 @@ export const Card = ({ id }) => {
     const [animated, setAanimated] = useState(false)
 
     useEffect(() => {
-        async function fetchData() {
+        const fetchData = async () => {
             const response = await pokemonAPI.getPokemon(id)
             const name = response.data.name
-            const imageUrl =
-                animated ?
-                    response.data.sprites.versions['generation-v']['black-white']['animated']['front_default']
-                    :
-                    response.data.sprites.other['dream_world']['front_default']
+            const imageUrl = animated ?
+                response.data.sprites.versions['generation-v']['black-white']['animated']['front_default']
+                :
+                response.data.sprites.other['dream_world']['front_default']
 
             setPokemon({
                 name: name,
@@ -57,15 +49,12 @@ export const Card = ({ id }) => {
     }
 
     return (
-        <PokemonCard id={`card-${id}`}
+        <styled.Info id={`card-${id}`}
             onMouseOver={handleMouseOver}
             onMouseOut={handleMouseOut}
             style={{ borderColor: theme.border }} >
-
-            <PokemonName style={{ color: theme.color }}>
-                {pokemon.name}
-            </PokemonName>
-            <PokemonImg src={pokemon.imageUrl} alt={pokemon.name} />
-        </PokemonCard>
+            <styled.Name style={{ color: theme.color }}>{pokemon.name}</styled.Name>
+            <styled.Img src={pokemon.imageUrl} alt={pokemon.name} />
+        </styled.Info>
     )
 }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PokemonCard = styled.div`
+export const Info = styled.div`
     text-align: center;
     border-radius: 5px;
     border-width: 2px;
@@ -11,7 +11,7 @@ export const PokemonCard = styled.div`
     transition: 0.5s ease-in-out;
 `;
 
-export const PokemonName = styled.h2`
+export const Name = styled.h2`
   font-size: 30px;
   font-weight: 800;
   text-decoration: none;
@@ -21,7 +21,7 @@ export const PokemonName = styled.h2`
   transition: 0.5s ease-in-out;
 `;
 
-export const PokemonImg = styled.img`
+export const Img = styled.img`
     padding: 15px 0;
     width: 160px;
     height: 130px;

@@ -4,7 +4,7 @@ export const Main = styled.main`
     margin-top: -40px;
 `;
 
-export const Deck = styled.div`
+export const Pokemons = styled.div`
     padding: 50px 0;
     display: flex;
     justify-content: center; 

@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const AddMorePokemons = styled.div`
+export const LoadPokemons = styled.div`
     text-align: center;
     margin-top: 30px;
 `;
 
-export const AddButton = styled.button`
+export const Button = styled.button`
     padding: 15px 32px;
     background-color: #ff0000;
     color: #fff;

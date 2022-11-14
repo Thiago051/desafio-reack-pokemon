@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const MovesSection = styled.section`
+export const Section = styled.section`
     width: 100%;
     display: flex;
     flex-direction: column;

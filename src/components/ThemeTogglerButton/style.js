@@ -4,7 +4,7 @@ export const ThemeToggler = styled.div`
     margin-top: 15px;
 `;
 
-export const TogglerButton = styled.button`
+export const Button = styled.button`
     padding: 10px;
     font-size: 16px;
     font-weight: 600;

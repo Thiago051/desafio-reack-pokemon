@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const TypesSection = styled.section`
+export const Section = styled.section`
     margin-top: 30px;
 `;
 

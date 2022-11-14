@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const AbilitiesSection = styled.section`
+export const Section = styled.section`
     margin-top: 30px;
 `;
 
@@ -30,6 +30,6 @@ export const Item = styled.li`
     color: #fff;
 `;
 
-export const AbilityName = styled.h3`
+export const Ability = styled.h3`
     text-transform: capitalize;
 `;

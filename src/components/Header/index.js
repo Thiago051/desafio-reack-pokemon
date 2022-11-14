@@ -1,17 +1,15 @@
 import logo from "../../images/logo.svg"
 import { ThemeTogglerButton } from "../ThemeTogglerButton"
-import { AppHeader, AppInfo, AppTitle, AppLogo } from "./style"
+import * as styled from "./style"
 
 export const Header = () => {
     return (
-        <>
-            <AppHeader>
-                <AppInfo>
-                    <AppLogo src={logo} alt="PokeDex" />
-                    <AppTitle>PokeDex</AppTitle>
-                </AppInfo>
-                <ThemeTogglerButton />
-            </AppHeader>
-        </>
+        <styled.Header>
+            <styled.Info>
+                <styled.Logo src={logo} alt="PokeDex" />
+                <styled.Title>PokeDex</styled.Title>
+            </styled.Info>
+            <ThemeTogglerButton />
+        </styled.Header>
     )
 }

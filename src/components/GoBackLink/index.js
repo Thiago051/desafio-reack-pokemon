@@ -1,15 +1,15 @@
 import { Link } from "react-router-dom"
-import { GoBack, Img } from "./style"
 import arrowLeft from "../../images/left-arrow.svg"
+import * as styled from "./style"
 
 export const GoBackLink = () => {
     return (
-        <GoBack>
+        <styled.GoBack>
             <Link to={'/'}>
                 <span>
-                    <Img src={arrowLeft} alt="Go Back" />
+                    <styled.Img src={arrowLeft} alt="Go Back" />
                 </span>
             </Link>
-        </GoBack>
+        </styled.GoBack>
     )
 }
