@@ -1,7 +1,7 @@
 import axios from "axios";
-import { baseUrl } from "../variables/variables";
+import { baseURL } from "../variables/variables";
 
-const api = axios.create({ baseURL: baseUrl })
+const api = axios.create({ baseURL: baseURL })
 
 export const pokemonAPI = {
     getPokemon: (id) => api.get(`pokemon/${id}`),

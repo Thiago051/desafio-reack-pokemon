@@ -29,6 +29,6 @@ export const Name = styled.h2`
 
 export const Img = styled.img`
     width: 200px;
-    heigth: 200px;
+    height: 200px;
     margin-bottom: 30px;
 `;

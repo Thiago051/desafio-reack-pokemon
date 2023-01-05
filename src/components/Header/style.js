@@ -7,7 +7,6 @@ export const Header = styled.div`
     top: 0;
     z-index: 1;
     width: 100%;
-    display: flex;
     justify-content:center;
     align-items: center;
     background-color: #ff0000;

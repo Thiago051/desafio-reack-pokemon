@@ -5,19 +5,41 @@ import { pokemonAPI } from "../../services/api"
 import { Card } from "../Card"
 import * as styled from "./style"
 
+const PokemonInfo = ({ name }) => {
+
+    const [id, setId] = useState('')
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await pokemonAPI.getPokemon(name)
+            setId(response.data.id)
+        }
+        fetchData()
+    }, [name])
+
+
+    return (
+        <Link to={`pokemon/${id}`}>
+            <Card id={name} />
+        </Link>
+    )
+}
+
+
 export const FilterByType = ({ type }) => {
 
-    const [pokemonsList, setPokemonsList] = useState([])
+    const [pokemons, setPokemonsList] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await pokemonAPI.getPokemonsByType(type)
-            setPokemonsList(response.data.pokemon)
+            setPokemonsList(
+                response.data.pokemon.map(pokemons => pokemons.pokemon.name)
+            )
         }
         fetchData()
     }, [type])
 
-    const pokemons = pokemonsList.map(pokemons => pokemons.pokemon.name)
     const { theme } = useContext(ThemeContext)
 
     return (
@@ -26,9 +48,7 @@ export const FilterByType = ({ type }) => {
                 {
                     pokemons.map((pokemon, index) =>
                         <styled.Item key={index}>
-                            <Link to={`pokemon/${pokemon}`}>
-                                <Card id={pokemon} />
-                            </Link>
+                            <PokemonInfo name={pokemon} />
                         </styled.Item>
                     )
                 }

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { ThemeContext, themes } from "../../contexts/ThemeContext";
 import * as styled from "./style"
 
-export const ThemeTogglerButton = () => {
+export const ThemeToggler = () => {
 
     const { theme, setTheme } = useContext(ThemeContext)
 

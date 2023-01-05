@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { pokemonAPI } from "../../services/api"
-import { AllPokemons } from "../AllPokemons"
-import { FilterByType } from "../FilterByType"
+import { AllPokemons } from "../../components/AllPokemons";
+import { FilterByType } from "../../components/FilterByType"
 import * as styled from "./style";
 
-export const SelectPokemonType = () => {
+export const Home = () => {
 
     const [pokemonTypes, setPokemonTypes] = useState([])
 
