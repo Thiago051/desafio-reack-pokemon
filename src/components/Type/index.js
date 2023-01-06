@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import * as styled from "./styles";
+import { TypeSection } from "./styles";
 
 export const Type = ({ typesList }) => {
 
@@ -8,11 +8,11 @@ export const Type = ({ typesList }) => {
     const { theme } = useContext(ThemeContext)
 
     return (
-        <styled.Section>
-            <styled.Title style={{ color: theme.color }}>Type</styled.Title>
-            <styled.List>
-                {types.map((type, index) => <styled.Item key={index}>{type}</styled.Item>)}
-            </styled.List>
-        </styled.Section>
+        <TypeSection theme={theme}>
+            <h2>Type</h2>
+            <ul>
+                {types.map((type, index) => <li key={index}>{type}</li>)}
+            </ul>
+        </TypeSection>
     )
 }

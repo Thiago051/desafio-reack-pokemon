@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { ThemeContext, themes } from "../../contexts/ThemeContext";
-import * as styled from "./style"
+import { Toggler } from "./style"
 
 export const ThemeToggler = () => {
 
@@ -9,11 +9,10 @@ export const ThemeToggler = () => {
     const handleClick = () => setTheme(theme === themes.light ? themes.dark : themes.light)
 
     return (
-        <styled.ThemeToggler>
-            <styled.Button onClick={handleClick}
-                style={{ borderColor: theme.border, backgroundColor: theme.background, color: theme.color }}>
+        <Toggler theme={theme}>
+            <button onClick={handleClick}>
                 {theme === themes.light ? 'Dark Mode' : 'Light Mode'}
-            </styled.Button>
-        </styled.ThemeToggler>
+            </button>
+        </Toggler>
     )
 }

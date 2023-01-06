@@ -4,7 +4,7 @@ import { ThemeContext } from "../../contexts/ThemeContext"
 import { initialPokemonsQuantity, totalOfPokemons } from "../../variables/variables"
 import { Button } from "../Button"
 import { Card } from "../Card"
-import * as styled from "./style"
+import { Container, Pokemons } from "./style"
 
 const getIdList = (limit) => {
     let ids = []
@@ -14,22 +14,20 @@ const getIdList = (limit) => {
 
 const PokemonsList = ({ limit }) => {
 
-    if (limit > totalOfPokemons) limit = totalOfPokemons
-
     const pokemonsId = getIdList(limit)
 
     return (
-        <styled.List>
+        <ul>
             {
                 pokemonsId.map((id, index) =>
-                    <styled.Item key={index}>
+                    <li key={index}>
                         <Link to={`pokemon/${id}`}>
                             <Card id={id} />
                         </Link>
-                    </styled.Item>
+                    </li>
                 )
             }
-        </styled.List>
+        </ul>
     )
 }
 
@@ -37,16 +35,27 @@ export const AllPokemons = () => {
 
     const [limit, setLimit] = useState(initialPokemonsQuantity)
 
-    const handleClick = () => setLimit(initialPokemonsQuantity + limit)
+    const handleClick = () => {
+        if (limit <= totalOfPokemons - initialPokemonsQuantity){
+            setLimit(initialPokemonsQuantity + limit)
+        }
+        else {
+            setLimit(totalOfPokemons)
+        }
+        
+        if(limit === totalOfPokemons)
+            alert('All pokemons of this category have already been loaded!!')   
+    }
+    
 
     const { theme } = useContext(ThemeContext)
 
     return (
-        <styled.Main style={{ backgroundColor: theme.background }}>
-            <styled.Pokemons>
+        <Container theme={theme}>
+            <Pokemons>
                 <PokemonsList limit={limit} />
-            </styled.Pokemons>
+            </Pokemons>
             <Button onClick={handleClick}>Load More</Button>
-        </styled.Main>
+        </Container>
     )
 }

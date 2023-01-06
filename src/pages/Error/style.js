@@ -6,29 +6,21 @@ export const NotFound = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: ${props => props.theme.background};
 
     h2 {
         font-size: 100px;
+        color: ${props => props.theme.color};
     }
 
     p {
         font-size: 25px;
         font-weight: 800;
         margin-bottom: 60px;
+        color: ${props => props.theme.color};
     }
 
-    span {
-        padding: 15px 32px;
-        background-color: #ff0000;
-        color: #fff;
-        font-weight: 900;
-        text-transform: uppercase;
-        border-width: 2px;
-        border-style: solid;
-        border-radius: 5px;
-    }
-
-    h2, p, span {
+    h2, p {
         transition: 0.5s ease-in-out;
     }
 `;

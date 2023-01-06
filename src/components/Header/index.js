@@ -1,15 +1,18 @@
+import { Link } from "react-router-dom"
 import logo from "../../images/logo.svg"
 import { ThemeToggler } from "../ThemeToggler"
-import * as styled from "./style"
+import { Head } from "./style"
 
 export const Header = () => {
     return (
-        <styled.Header>
-            <styled.Info>
-                <styled.Logo src={logo} alt="PokeDex" />
-                <styled.Title>PokeDex</styled.Title>
-            </styled.Info>
+        <Head>
+            
+                <Link to={'/'}>
+                    <img src={logo} alt="PokeDex" />
+                    <h1>PokeDex</h1>
+                </Link>
+            
             <ThemeToggler />
-        </styled.Header>
+        </Head>
     )
 }

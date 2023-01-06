@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
-export const Main = styled.main`
+export const Container = styled.main`
     margin-top: -40px;
     padding: 50px 0;
-`;
 
-export const List = styled.ul`
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-content: center;
-`;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: center;
+    }
 
-export const Item = styled.li`
-    margin: 5px;
+    li {
+        margin: 5px;
+    }
 `;

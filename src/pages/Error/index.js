@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { Link } from "react-router-dom"
 import { ThemeContext } from "../../contexts/ThemeContext"
+import {Button} from "../../components/Button"
 import { NotFound } from "./style"
 
 export const Error = () => {
@@ -8,11 +9,11 @@ export const Error = () => {
     const { theme } = useContext(ThemeContext)
 
     return (
-        <NotFound style={{ backgroundColor: theme.background }}>
-            <h2 style={{ color: theme.color }}>404</h2>
-            <p style={{ color: theme.color }}>Page Not Found</p>
+        <NotFound theme={theme}>
+            <h2>404</h2>
+            <p>Page Not Found</p>
             <Link to={'/'}>
-                <span style={{borderColor: theme.border}}>Go to Home Page</span>
+                <Button>Go to Home Page</Button>
             </Link>
         </NotFound>
     )

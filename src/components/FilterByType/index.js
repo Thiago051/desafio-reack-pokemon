@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
-import { ThemeContext } from "../../contexts/ThemeContext"
 import { pokemonAPI } from "../../services/api"
 import { Card } from "../Card"
-import * as styled from "./style"
+import { Container } from "./style"
 
 const PokemonInfo = ({ name }) => {
 
@@ -40,19 +39,17 @@ export const FilterByType = ({ type }) => {
         fetchData()
     }, [type])
 
-    const { theme } = useContext(ThemeContext)
-
     return (
-        <styled.Main style={{ backgroundColor: theme.background }}>
-            <styled.List>
+        <Container>
+            <ul>
                 {
                     pokemons.map((pokemon, index) =>
-                        <styled.Item key={index}>
+                        <li key={index}>
                             <PokemonInfo name={pokemon} />
-                        </styled.Item>
+                        </li>
                     )
                 }
-            </styled.List>
-        </styled.Main>
+            </ul>
+        </Container>
     )
 }

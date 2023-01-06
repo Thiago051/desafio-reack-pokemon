@@ -1,17 +1,19 @@
 import { pokemonAPI } from "../../services/api"
 import { useState, useEffect, useContext } from "react"
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { GoBackLink } from "../../components/GoBackLink"
 import { Moves } from "../../components/Moves"
 import { Abilities } from "../../components/Abilities"
 import { Type } from "../../components/Type"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { selectImage } from "../../utils/selectImage"
-import * as styled from "./style"
+import { Container, Main, PokemonInfo } from "./style"
+
 
 export const Pokemon = () => {
 
     const { id } = useParams()
+    const navigate = useNavigate()
 
     const [pokemon, setPokemon] = useState({
         name: '',
@@ -24,6 +26,12 @@ export const Pokemon = () => {
     useEffect(() => {
         const fetchData = async () => {
             const response = await pokemonAPI.getPokemon(id)
+                .catch(error => {
+                    if (error.response.status === 404) {
+                        navigate(`/pokemon/${id}/NotFound`)
+                    }
+                })
+
             const name = response.data.name
             const imageUrl = response.data.sprites.other['dream_world']['front_default'] ?? selectImage(response)
             const moves = response.data.moves
@@ -39,24 +47,22 @@ export const Pokemon = () => {
             })
         }
         fetchData()
-    }, [id])
+    }, [id, navigate])
 
     const { theme } = useContext(ThemeContext)
 
     return (
-        <>
+        <Container onLoad={window.scroll({ top: 0 })}>
             <GoBackLink />
-            <styled.Main style={{ backgroundColor: theme.background }}>
-                <styled.Info style={{ borderColor: theme.border }}>
-                    <styled.Name style={{ color: theme.color }}>
-                        {pokemon.name}
-                    </styled.Name>
-                    <styled.Img src={pokemon.imageUrl} alt={pokemon.name} />
-                </styled.Info>
+            <Main theme={theme}>
+                <PokemonInfo theme={theme}>
+                    <h2>{pokemon.name}</h2>
+                    <img src={pokemon.imageUrl} alt={pokemon.name} />
+                </PokemonInfo>
                 <Moves movesList={pokemon.moves} />
                 <Abilities abilitiesList={pokemon.abilities} />
                 <Type typesList={pokemon.types} />
-            </styled.Main>
-        </>
+            </Main>
+        </Container>
     )
 }

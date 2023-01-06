@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { pokemonAPI } from "../../services/api"
-import * as styled from "./style"
+import { AbilitiesSection } from "./style"
 
 const AbilityDescription = ({ ability }) => {
 
@@ -18,7 +18,7 @@ const AbilityDescription = ({ ability }) => {
         fetchData()
     }, [ability])
 
-    return <styled.Description>{abilityText}</styled.Description>
+    return <p>{abilityText}</p>
 }
 
 export const Abilities = ({ abilitiesList }) => {
@@ -27,18 +27,18 @@ export const Abilities = ({ abilitiesList }) => {
     const { theme } = useContext(ThemeContext)
 
     return (
-        <styled.Section>
-            <styled.Title style={{ color: theme.color }}>Abilities</styled.Title>
-            <styled.List>
+        <AbilitiesSection>
+            <h2 style={{ color: theme.color }}>Abilities</h2>
+            <ul>
                 {
                     abilities.map((ability, index) =>
-                        <styled.Item key={index}>
-                            <styled.Ability>{ability}</styled.Ability>
+                        <li key={index}>
+                            <h3>{ability}</h3>
                             <AbilityDescription ability={ability} />
-                        </styled.Item>
+                        </li>
                     )
                 }
-            </styled.List>
-        </styled.Section>
+            </ul>
+        </AbilitiesSection>
     )
 }

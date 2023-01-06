@@ -3,7 +3,7 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import { pokemonAPI } from "../../services/api"
 import { AllPokemons } from "../../components/AllPokemons";
 import { FilterByType } from "../../components/FilterByType"
-import * as styled from "./style";
+import { Filter, Container } from "./style";
 
 export const Home = () => {
 
@@ -17,34 +17,32 @@ export const Home = () => {
         fetchData()
     }, [])
 
-    const [type, setType] = useState('all types')
-
-    const handleOptionChange = (event) => setType(event.target.value)
+    const [type, setType] = useState('all')
 
     const filteredTypes = pokemonTypes
         .filter(type => type.name !== 'unknown' && type.name !== 'shadow')
         .map(type => type.name)
-    filteredTypes.unshift('all types')
+    filteredTypes.unshift('all')
 
     const { theme } = useContext(ThemeContext)
 
     return (
         <>
-            <styled.Filter style={{ backgroundColor: theme.background, color: theme.color }}>
-                <styled.Text>Filter Pokemons By Type:</styled.Text>
-                <styled.Select onChange={handleOptionChange}>
+            <Filter theme={theme}>
+                <p>Filter Pokemons By Type:</p>
+                <select onChange={(event) => setType(event.target.value)}>
                     <option value={type} disabled={true}></option>
                     {
                         filteredTypes.map((type, index) =>
                             <option value={type} key={index}>{type}</option>
                         )
                     }
-                </styled.Select>
-            </styled.Filter>
+                </select>
+            </Filter>
 
-            <div style={{ minHeight: '1080px', backgroundColor: theme.background }}>
-                {type === 'all types' ? <AllPokemons /> : <FilterByType type={type} />}
-            </div>
+            <Container theme={theme}>
+                {type === 'all' ? <AllPokemons /> : <FilterByType type={type} />}
+            </Container>
         </>
 
     )

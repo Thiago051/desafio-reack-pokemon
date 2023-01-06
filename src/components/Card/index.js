@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { pokemonAPI } from "../../services/api"
 import { selectImage } from "../../utils/selectImage"
-import * as styled from "./style"
+import { Info } from "./style"
 
 export const Card = ({ id }) => {
 
@@ -32,29 +32,13 @@ export const Card = ({ id }) => {
 
     const { theme } = useContext(ThemeContext)
 
-    const setCardBorder = (color, width) => {
-        let card = document.querySelector(`#card-${id}`).style
-        card.borderColor = color
-        card.borderWidth = width
-    }
-
-    const handleMouseOver = () => {
-        setAanimated(true)
-        setCardBorder('#f00', '5px')
-    }
-
-    const handleMouseOut = () => {
-        setAanimated(false)
-        setCardBorder(theme.border, '2px')
-    }
-
     return (
-        <styled.Info id={`card-${id}`}
-            onMouseOver={handleMouseOver}
-            onMouseOut={handleMouseOut}
-            style={{ borderColor: theme.border }} >
-            <styled.Name style={{ color: theme.color }}>{pokemon.name}</styled.Name>
-            <styled.Img src={pokemon.imageUrl} alt={pokemon.name} />
-        </styled.Info>
+        <Info
+            theme={theme}
+            onMouseOver={() => setAanimated(true)}
+            onMouseOut={() => setAanimated(false)}>
+            <h2>{pokemon.name}</h2>
+            <img src={pokemon.imageUrl} alt={pokemon.name} />
+        </Info>
     )
 }

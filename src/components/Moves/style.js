@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-export const TypeSection = styled.section`
-    margin-top: 30px;
+export const MovesSection = styled.section`
+    width: 100%;
+    display: flex;
+    flex-direction: column;
 
     h2 {
         font-size: 30px;
@@ -12,12 +14,14 @@ export const TypeSection = styled.section`
     }
 
     ul {
-        padding: 15px 30px;
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px 30px;
     }
 
     li {
-        background-color: #00b300;
+        background-color: #ff1a1a;
         padding: 10px;
         border-radius: 5px;
         margin: 5px;
