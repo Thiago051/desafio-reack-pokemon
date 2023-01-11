@@ -7,7 +7,7 @@ import { Abilities } from "../../components/Abilities"
 import { Type } from "../../components/Type"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { selectImage } from "../../utils/selectImage"
-import { Container, Main, PokemonInfo } from "./style"
+import { Container, Main } from "./style"
 
 
 export const Pokemon = () => {
@@ -34,9 +34,9 @@ export const Pokemon = () => {
 
             const name = response.data.name
             const imageUrl = response.data.sprites.other['dream_world']['front_default'] ?? selectImage(response)
-            const moves = response.data.moves
-            const abilities = response.data.abilities
-            const types = response.data.types
+            const moves = response.data.moves.map(moves => moves.move.name)
+            const abilities = response.data.abilities.map(abilities => abilities.ability.name)
+            const types = response.data.types.map(types => types.type.name)
 
             setPokemon({
                 imageUrl: imageUrl,
@@ -55,13 +55,13 @@ export const Pokemon = () => {
         <Container onLoad={window.scroll({ top: 0 })}>
             <GoBackLink />
             <Main theme={theme}>
-                <PokemonInfo theme={theme}>
+                <div>
                     <h2>{pokemon.name}</h2>
                     <img src={pokemon.imageUrl} alt={pokemon.name} />
-                </PokemonInfo>
-                <Moves movesList={pokemon.moves} />
-                <Abilities abilitiesList={pokemon.abilities} />
-                <Type typesList={pokemon.types} />
+                </div>
+                <Moves moves={pokemon.moves} />
+                <Abilities abilities={pokemon.abilities} />
+                <Type types={pokemon.types} />
             </Main>
         </Container>
     )

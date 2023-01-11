@@ -2,10 +2,11 @@ import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { TypeSection } from "./styles";
 
-export const Type = ({ typesList }) => {
+export const Type = ({ types }) => {
 
-    const types = typesList.map(types => types.type.name)
     const { theme } = useContext(ThemeContext)
+
+    if(types.length === 0) return
 
     return (
         <TypeSection theme={theme}>

@@ -9,35 +9,33 @@ export const Main = styled.main`
     flex-direction: column;
     align-items: center;
     background-color: ${props => props.theme.background};
-`;
 
-export const PokemonInfo = styled.div`
-    text-align: center;
-    width: 350px;
-    border-width: 2px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color: ${props => props.theme.border};
-    margin-bottom: 30px;
-    transition: 0.5s ease-in-out;
+    div {
+        text-align: center;
+        width: 350px;
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 5px;
+        border-color: ${props => props.theme.border};
+        margin-bottom: 30px;
+        transition: 0.5s ease-in-out;
+    }
 
-    h2 {
+    div h2 {
         text-transform: capitalize;
         font-size: 50px;
         font-weight: 800;
         padding: 15px;
-        transition: 0.5s ease-in-out;
         color: #fff;
         font-size: 55px;
-        text-shadow:
-            0 0 7px #f00,
-            0 0 10px #f00,
-            0 0 21px #f00;
+        transition: 0.5s ease-in-out;
+        text-shadow: 0 0 7px #f00, 0 0 10px #f00, 0 0 21px #f00;
     }
 
-    img {
+    div img {
         width: 200px;
         height: 200px;
         margin-bottom: 30px;
+        transition: 0.5s ease-in-out;
     }
 `;

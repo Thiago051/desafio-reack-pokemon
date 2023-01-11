@@ -1,25 +1,18 @@
 import { useContext, useState } from "react"
 import { Link } from 'react-router-dom'
 import { ThemeContext } from "../../contexts/ThemeContext"
-import { initialPokemonsQuantity, totalOfPokemons } from "../../variables/variables"
 import { Button } from "../Button"
 import { Card } from "../Card"
 import { Container, Pokemons } from "./style"
-
-const getIdList = (limit) => {
-    let ids = []
-    for (let id = 1; id <= limit; id++) ids.push(id)
-    return ids
-}
+import { getIDs } from "../../utils/getIDs"
+import { QUANTITY_TO_LOAD } from "../../variables/variables"
 
 const PokemonsList = ({ limit }) => {
-
-    const pokemonsId = getIdList(limit)
 
     return (
         <ul>
             {
-                pokemonsId.map((id, index) =>
+                limit.map((id, index) =>
                     <li key={index}>
                         <Link to={`pokemon/${id}`}>
                             <Card id={id} />
@@ -33,20 +26,22 @@ const PokemonsList = ({ limit }) => {
 
 export const AllPokemons = () => {
 
-    const [limit, setLimit] = useState(initialPokemonsQuantity)
+    const ids = getIDs()
+    const [limit, setLimit] = useState(ids.slice(0, QUANTITY_TO_LOAD))
 
     const handleClick = () => {
-        if (limit <= totalOfPokemons - initialPokemonsQuantity){
-            setLimit(initialPokemonsQuantity + limit)
+        if (limit.length <= ids.length - QUANTITY_TO_LOAD) {
+            setLimit(
+                ids.slice(0, (limit.length + QUANTITY_TO_LOAD))
+            )
+        } else {
+            setLimit(ids)
         }
-        else {
-            setLimit(totalOfPokemons)
+
+        if (limit.length === ids.length) {
+            alert('All pokemons of this category have already been loaded!!')
         }
-        
-        if(limit === totalOfPokemons)
-            alert('All pokemons of this category have already been loaded!!')   
     }
-    
 
     const { theme } = useContext(ThemeContext)
 

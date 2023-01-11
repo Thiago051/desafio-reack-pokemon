@@ -2,10 +2,11 @@ import { useContext } from "react"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { MovesSection } from "./style"
 
-export const Moves = ({ movesList }) => {
+export const Moves = ({ moves }) => {
 
-    const moves = movesList.map(moves => moves.move.name)
     const { theme } = useContext(ThemeContext)
+
+    if(moves.length === 0) return
 
     return (
         <MovesSection theme={theme}>

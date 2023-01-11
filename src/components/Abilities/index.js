@@ -21,11 +21,12 @@ const AbilityDescription = ({ ability }) => {
     return <p>{abilityText}</p>
 }
 
-export const Abilities = ({ abilitiesList }) => {
+export const Abilities = ({ abilities }) => {
 
-    const abilities = abilitiesList.map(abilities => abilities.ability.name)
     const { theme } = useContext(ThemeContext)
 
+    if(abilities.length === 0) return
+    
     return (
         <AbilitiesSection>
             <h2 style={{ color: theme.color }}>Abilities</h2>
