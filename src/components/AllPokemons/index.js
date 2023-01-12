@@ -6,6 +6,7 @@ import { Card } from "../Card"
 import { Container, Pokemons } from "./style"
 import { getIDs } from "../../utils/getIDs"
 import { QUANTITY_TO_LOAD } from "../../variables/variables"
+import { toast } from "react-toastify"
 
 const PokemonsList = ({ limit }) => {
 
@@ -39,7 +40,7 @@ export const AllPokemons = () => {
         }
 
         if (limit.length === ids.length) {
-            alert('All pokemons of this category have already been loaded!!')
+            toast.error('All pokemons of this category have already been loaded!!')
         }
     }
 

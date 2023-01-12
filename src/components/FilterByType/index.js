@@ -5,6 +5,7 @@ import { Card } from "../Card"
 import { Button } from "../Button"
 import { Container } from "./style"
 import { QUANTITY_TO_LOAD } from "../../variables/variables"
+import { toast } from "react-toastify"
 
 const PokemonInfo = ({ name }) => {
 
@@ -44,15 +45,13 @@ export const FilterByType = ({ type }) => {
 
     const handleClick = () => {
         if (limit.length <= pokemons.length - QUANTITY_TO_LOAD) {
-            setLimit(
-                pokemons.slice(0, (limit.length + QUANTITY_TO_LOAD))
-            )
+            setLimit(pokemons.slice(0, (limit.length + QUANTITY_TO_LOAD)))
         } else {
             setLimit(pokemons)
         }
 
         if (limit.length === pokemons.length) {
-            alert('All pokemons of this category have already been loaded!!')
+            toast.error('All pokemons of this category have already been loaded!!')
         }
     }
 

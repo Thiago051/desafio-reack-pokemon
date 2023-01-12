@@ -2,6 +2,8 @@ import './App.css';
 import { AppRoutes } from './pages/routes';
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from './contexts/ThemeContext';
+import 'react-toastify/dist/ReactToastify.css'
+import {ToastContainer} from 'react-toastify'
 
 function App() {
   return (
@@ -9,6 +11,7 @@ function App() {
       <GlobalStyle />
       <ThemeProvider>
         <AppRoutes />
+        <ToastContainer autoClose={3000}/>
       </ThemeProvider>
     </>
   );
