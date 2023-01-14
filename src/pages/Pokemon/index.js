@@ -7,7 +7,7 @@ import { Abilities } from "../../components/Abilities"
 import { Type } from "../../components/Type"
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { selectImage } from "../../utils/selectImage"
-import { Container, Main } from "./style"
+import { Container } from "./style"
 
 
 export const Pokemon = () => {
@@ -52,9 +52,9 @@ export const Pokemon = () => {
     const { theme } = useContext(ThemeContext)
 
     return (
-        <Container onLoad={window.scroll({ top: 0 })}>
+        <>
             <GoBackLink />
-            <Main theme={theme}>
+            <Container theme={theme} onLoad={window.scroll({ top: 0 })}>
                 <div>
                     <h2>{pokemon.name}</h2>
                     <img src={pokemon.imageUrl} alt={pokemon.name} />
@@ -62,7 +62,7 @@ export const Pokemon = () => {
                 <Moves moves={pokemon.moves} />
                 <Abilities abilities={pokemon.abilities} />
                 <Type types={pokemon.types} />
-            </Main>
-        </Container>
+            </Container>
+        </>
     )
 }

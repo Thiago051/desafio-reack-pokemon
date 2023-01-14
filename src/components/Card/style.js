@@ -25,6 +25,10 @@ export const Info = styled.div`
         transition: 0.5s ease-in-out;
     }
 
+    h3 {
+        color: #f00;
+    }
+
     img {
         padding: 10px 0;
         width: 160px;
@@ -42,5 +46,33 @@ export const Info = styled.div`
         color: #fff;
         font-size: 35px;
         text-shadow: 0 0 7px #f00, 0 0 10px #f00, 0 0 21px #f00;
+    }
+`;
+
+export const Loading = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: ${props => props.theme.border};
+    width: 250px;
+    height: 275px;
+
+    span {
+        animation: is-rotating 1s infinite;
+        border: 6px solid #e5e5e5;
+        border-radius: 50%;
+        border-top-color: #f00;
+        height: 50px;
+        width: 50px;
+    }
+
+    @keyframes is-rotating {
+        to {
+            transform: rotate(1turn);
+        }
     }
 `;

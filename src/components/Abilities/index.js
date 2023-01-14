@@ -25,8 +25,8 @@ export const Abilities = ({ abilities }) => {
 
     const { theme } = useContext(ThemeContext)
 
-    if(abilities.length === 0) return
-    
+    if (abilities.length === 0) return
+
     return (
         <AbilitiesSection>
             <h2 style={{ color: theme.color }}>Abilities</h2>

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const MovesSection = styled.section`
-    width: 100%;
     display: flex;
     flex-direction: column;
 
@@ -17,6 +16,7 @@ export const MovesSection = styled.section`
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        gap: 10px;
         padding: 15px 30px;
     }
 
@@ -24,7 +24,6 @@ export const MovesSection = styled.section`
         background-color: #ff1a1a;
         padding: 10px;
         border-radius: 5px;
-        margin: 5px;
         color: #fff;
         font-size: 18px;
         font-weight: 500;

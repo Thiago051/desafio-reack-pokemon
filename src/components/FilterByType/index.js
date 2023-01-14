@@ -7,50 +7,46 @@ import { Container } from "./style"
 import { QUANTITY_TO_LOAD } from "../../variables/variables"
 import { toast } from "react-toastify"
 
-const PokemonInfo = ({ name }) => {
+const PokemonsCards = ({ pokemons, limit }) => {
 
-    const [id, setId] = useState('')
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const response = await pokemonAPI.getPokemon(name)
-            setId(response.data.id)
-        }
-        fetchData()
-    }, [name])
-
+    const pokemonsToLoad = pokemons.slice(0, limit)
 
     return (
-        <Link to={`pokemon/${id}`}>
-            <Card id={name} />
-        </Link>
+        <ul>
+            {
+                pokemonsToLoad.map((pokemon, index) =>
+                    <li key={index}>
+                        <Link to={`pokemon/${pokemon}`}>
+                            <Card id={pokemon} />
+                        </Link>
+                    </li>
+                )
+            }
+        </ul>
     )
 }
-
 
 export const FilterByType = ({ type }) => {
 
     const [pokemons, setPokemons] = useState([])
-    const [limit, setLimit] = useState([])
+    const [limit, setLimit] = useState(QUANTITY_TO_LOAD)
 
     useEffect(() => {
         const fetchData = async () => {
             const response = await pokemonAPI.getPokemonsByType(type)
             setPokemons(response.data.pokemon.map(pokemons => pokemons.pokemon.name))
-            if (limit.length === 0) setLimit(pokemons.slice(0, QUANTITY_TO_LOAD))
         }
         fetchData()
-    }, [type, pokemons, limit.length])
-
+    }, [type])
 
     const handleClick = () => {
-        if (limit.length <= pokemons.length - QUANTITY_TO_LOAD) {
-            setLimit(pokemons.slice(0, (limit.length + QUANTITY_TO_LOAD)))
+        if (limit <= pokemons.length - QUANTITY_TO_LOAD) {
+            setLimit(limit + QUANTITY_TO_LOAD)
         } else {
-            setLimit(pokemons)
+            setLimit(pokemons.length)
         }
-
-        if (limit.length === pokemons.length) {
+        
+        if (limit === pokemons.length) {
             toast.error('All pokemons of this category have already been loaded!!')
         }
     }
@@ -58,15 +54,7 @@ export const FilterByType = ({ type }) => {
     return (
         <>
             <Container>
-                <ul>
-                    {
-                        limit.map((pokemon, index) =>
-                            <li key={index}>
-                                <PokemonInfo name={pokemon} />
-                            </li>
-                        )
-                    }
-                </ul>
+                <PokemonsCards pokemons={pokemons} limit={limit}/>
             </Container>
             <Button onClick={handleClick}>Load More</Button>
         </>

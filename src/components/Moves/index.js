@@ -6,7 +6,7 @@ export const Moves = ({ moves }) => {
 
     const { theme } = useContext(ThemeContext)
 
-    if(moves.length === 0) return
+    if (moves.length === 0) return
 
     return (
         <MovesSection theme={theme}>

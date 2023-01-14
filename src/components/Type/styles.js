@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const TypeSection = styled.section`
-    margin-top: 30px;
+    /* margin-top: 30px; */
 
     h2 {
         font-size: 30px;
@@ -12,15 +12,15 @@ export const TypeSection = styled.section`
     }
 
     ul {
-        padding: 15px 30px;
         display: flex;
+        gap: 10px;
+        padding: 15px 30px;
     }
 
     li {
         background-color: #00b300;
         padding: 10px;
         border-radius: 5px;
-        margin: 5px;
         color: #fff;
         font-size: 18px;
         font-weight: 500;

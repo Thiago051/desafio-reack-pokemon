@@ -6,7 +6,7 @@ export const Type = ({ types }) => {
 
     const { theme } = useContext(ThemeContext)
 
-    if(types.length === 0) return
+    if (types.length === 0) return
 
     return (
         <TypeSection theme={theme}>

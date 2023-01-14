@@ -1,22 +1,23 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { Link } from 'react-router-dom'
 import { ThemeContext } from "../../contexts/ThemeContext"
 import { Button } from "../Button"
 import { Card } from "../Card"
 import { Container, Pokemons } from "./style"
-import { getIDs } from "../../utils/getIDs"
+// import { getIDs } from "../../utils/getIDs"
 import { QUANTITY_TO_LOAD } from "../../variables/variables"
 import { toast } from "react-toastify"
+import { pokemonAPI } from "../../services/api"
 
-const PokemonsList = ({ limit }) => {
+const PokemonsList = ({ pokemons }) => {
 
     return (
         <ul>
             {
-                limit.map((id, index) =>
+                pokemons.map((pokemon, index) =>
                     <li key={index}>
-                        <Link to={`pokemon/${id}`}>
-                            <Card id={id} />
+                        <Link to={`pokemon/${pokemon}`}>
+                            <Card id={pokemon} />
                         </Link>
                     </li>
                 )
@@ -27,21 +28,31 @@ const PokemonsList = ({ limit }) => {
 
 export const AllPokemons = () => {
 
-    const ids = getIDs()
-    const [limit, setLimit] = useState(ids.slice(0, QUANTITY_TO_LOAD))
+    const [pokemons, setPokemons] = useState([])
+    const [limit, setLimit] = useState(QUANTITY_TO_LOAD)
+    const [totalOfPokemons, setTotalOfPokemons] = useState()
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const response = await pokemonAPI.getPokemons(limit)
+            setPokemons(response.data.results.map(pokemon => pokemon.name))
+            setTotalOfPokemons(response.data.count)
+        }
+        fetchData()
+    }, [limit, pokemons])
 
     const handleClick = () => {
-        if (limit.length <= ids.length - QUANTITY_TO_LOAD) {
-            setLimit(
-                ids.slice(0, (limit.length + QUANTITY_TO_LOAD))
-            )
-        } else {
-            setLimit(ids)
+        if (pokemons.length <= totalOfPokemons - QUANTITY_TO_LOAD) {
+            setLimit(limit + QUANTITY_TO_LOAD)
+        }
+        else {
+            setLimit(totalOfPokemons)
         }
 
-        if (limit.length === ids.length) {
+        if (pokemons.length === totalOfPokemons) {
             toast.error('All pokemons of this category have already been loaded!!')
         }
+
     }
 
     const { theme } = useContext(ThemeContext)
@@ -49,7 +60,7 @@ export const AllPokemons = () => {
     return (
         <Container theme={theme}>
             <Pokemons>
-                <PokemonsList limit={limit} />
+                <PokemonsList pokemons={pokemons} />
             </Pokemons>
             <Button onClick={handleClick}>Load More</Button>
         </Container>
