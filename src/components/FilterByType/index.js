@@ -37,6 +37,7 @@ export const FilterByType = ({ type }) => {
             setPokemons(response.data.pokemon.map(pokemons => pokemons.pokemon.name))
         }
         fetchData()
+        setLimit(QUANTITY_TO_LOAD)
     }, [type])
 
     const handleClick = () => {
