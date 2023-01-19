@@ -4,27 +4,9 @@ import { ThemeContext } from "../../contexts/ThemeContext"
 import { Button } from "../Button"
 import { Card } from "../Card"
 import { Container, Pokemons } from "./style"
-// import { getIDs } from "../../utils/getIDs"
 import { QUANTITY_TO_LOAD } from "../../variables/variables"
 import { toast } from "react-toastify"
 import { pokemonAPI } from "../../services/api"
-
-const PokemonsList = ({ pokemons }) => {
-
-    return (
-        <ul>
-            {
-                pokemons.map((pokemon, index) =>
-                    <li key={index}>
-                        <Link to={`pokemon/${pokemon}`}>
-                            <Card id={pokemon} />
-                        </Link>
-                    </li>
-                )
-            }
-        </ul>
-    )
-}
 
 export const AllPokemons = () => {
 
@@ -60,7 +42,17 @@ export const AllPokemons = () => {
     return (
         <Container theme={theme}>
             <Pokemons>
-                <PokemonsList pokemons={pokemons} />
+                <ul>
+                    {
+                        pokemons.map((pokemon, index) =>
+                            <li key={index}>
+                                <Link to={`pokemon/${pokemon}`}>
+                                    <Card id={pokemon} />
+                                </Link>
+                            </li>
+                        )
+                    }
+                </ul>
             </Pokemons>
             <Button onClick={handleClick}>Load More</Button>
         </Container>

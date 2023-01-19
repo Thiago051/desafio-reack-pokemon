@@ -7,6 +7,7 @@ export const AbilitiesSection = styled.section`
         font-size: 30px;
         font-weight: 700;
         text-align: center;
+        color: ${props => props.theme.color};
         transition: 0.5s ease-in-out;
     }
 

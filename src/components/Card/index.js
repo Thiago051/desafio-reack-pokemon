@@ -44,7 +44,7 @@ export const Card = ({ id }) => {
             <h2>{pokemon.name}</h2>
             {
                 pokemon.imageUrl === null ?
-                    <h3>image not found 😥</h3> : <img src={pokemon.imageUrl} alt={pokemon.name} />
+                    <h3>Image Not Found 😥</h3> : <img src={pokemon.imageUrl} alt={pokemon.name} />
             }
         </Info>
     )

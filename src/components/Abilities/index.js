@@ -28,8 +28,8 @@ export const Abilities = ({ abilities }) => {
     if (abilities.length === 0) return
 
     return (
-        <AbilitiesSection>
-            <h2 style={{ color: theme.color }}>Abilities</h2>
+        <AbilitiesSection theme={theme}>
+            <h2>Abilities</h2>
             <ul>
                 {
                     abilities.map((ability, index) =>

@@ -6,12 +6,10 @@ import { Head } from "./style"
 export const Header = () => {
     return (
         <Head>
-            
-                <Link to={'/'}>
-                    <img src={logo} alt="PokeDex" />
-                    <h1>PokeDex</h1>
-                </Link>
-            
+            <Link to={'/'}>
+                <img src={logo} alt="PokeDex" />
+                <h1>PokeDex</h1>
+            </Link>
             <ThemeToggler />
         </Head>
     )

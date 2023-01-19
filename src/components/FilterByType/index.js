@@ -7,29 +7,10 @@ import { Container } from "./style"
 import { QUANTITY_TO_LOAD } from "../../variables/variables"
 import { toast } from "react-toastify"
 
-const PokemonsCards = ({ pokemons, limit }) => {
-
-    const pokemonsToLoad = pokemons.slice(0, limit)
-
-    return (
-        <ul>
-            {
-                pokemonsToLoad.map((pokemon, index) =>
-                    <li key={index}>
-                        <Link to={`pokemon/${pokemon}`}>
-                            <Card id={pokemon} />
-                        </Link>
-                    </li>
-                )
-            }
-        </ul>
-    )
-}
-
 export const FilterByType = ({ type }) => {
 
     const [pokemons, setPokemons] = useState([])
-    const [limit, setLimit] = useState(QUANTITY_TO_LOAD)
+    const [limit, setLimit] = useState()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -46,16 +27,28 @@ export const FilterByType = ({ type }) => {
         } else {
             setLimit(pokemons.length)
         }
-        
+
         if (limit === pokemons.length) {
             toast.error('All pokemons of this category have already been loaded!!')
         }
     }
 
+    const pokemonsToLoad = pokemons.slice(0, limit)
+
     return (
         <>
             <Container>
-                <PokemonsCards pokemons={pokemons} limit={limit}/>
+                <ul>
+                    {
+                        pokemonsToLoad.map((pokemon, index) =>
+                            <li key={index}>
+                                <Link to={`pokemon/${pokemon}`}>
+                                    <Card id={pokemon} />
+                                </Link>
+                            </li>
+                        )
+                    }
+                </ul>
             </Container>
             <Button onClick={handleClick}>Load More</Button>
         </>
