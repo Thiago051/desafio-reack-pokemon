@@ -6,13 +6,12 @@ export const ThemeToggler = () => {
 
     const { theme, setTheme } = useContext(ThemeContext)
 
-    const handleClick = () => setTheme(theme === themes.light ? themes.dark : themes.light)
+    const handleChange = () => setTheme(theme === themes.light ? themes.dark : themes.light)
 
     return (
-        <Toggler theme={theme}>
-            <button onClick={handleClick}>
-                {theme === themes.light ? 'Dark Mode' : 'Light Mode'}
-            </button>
-        </Toggler>
+        <Toggler>
+            <input type="checkbox" onChange={handleChange}/>
+            <span></span>
+        </Toggler>    
     )
 }
