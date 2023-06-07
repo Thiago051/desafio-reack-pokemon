@@ -23,6 +23,7 @@ export const Home = () => {
         .filter(type => type.name !== 'unknown' && type.name !== 'shadow')
         .map(type => type.name)
     filteredTypes.unshift('all')
+    filteredTypes.sort()
 
     const { theme } = useContext(ThemeContext)
 
