@@ -14,6 +14,7 @@ export const FilterByType = ({ type }) => {
 
     useEffect(() => {
         const fetchData = async () => {
+            setPokemons([])
             const response = await pokemonAPI.getPokemonsByType(type)
             setPokemons(response.data.pokemon.map(pokemons => pokemons.pokemon.name))
         }
@@ -23,7 +24,7 @@ export const FilterByType = ({ type }) => {
 
     const handleClick = () => {
         if (limit <= pokemons.length - QUANTITY_TO_LOAD) {
-            setLimit(limit + QUANTITY_TO_LOAD)
+            setLimit((prevLimit) => prevLimit + QUANTITY_TO_LOAD)
         } else {
             setLimit(pokemons.length)
         }
